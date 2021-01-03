@@ -38,6 +38,5 @@ Participacion 2
     }
     
 }
-holis 
-resp
+
 
