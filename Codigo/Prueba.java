@@ -18,7 +18,7 @@ public class MultiplicationTable {
     }
 }
 
-PArticipacion 2
+Participacion 2
     public class MultiplicarTablas {
     public static void main(String[] args) {
        System.out.println("Multiplication Table the number 1 to 12");
