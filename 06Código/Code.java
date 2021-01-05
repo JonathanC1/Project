@@ -82,3 +82,41 @@ public class IDImage {
 public class IDPlates {
     
 }
+
+public class Plates {
+	private int id;
+   	private String description;
+    
+    	public void insert(){
+        
+    	}
+    
+    	public void delete(){
+        
+    	}
+    
+    	public void update(){
+        
+    	}
+
+  
+    	public int getId() {
+        	return id;
+    	}
+
+  
+    	public void setId(int id) {
+        	this.id = id;
+    	}
+
+   
+    	public String getDescription() {
+        	return description;
+    	}
+
+    
+    	public void setDescription(String description) {
+        	this.description = description;
+    	}
+    
+}
