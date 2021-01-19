@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Group2
+ * @author Group2 Sigma Programmers
  */
 public class Payment {
     private int id;
@@ -17,6 +17,19 @@ public class Payment {
     private float cost;
     private Date dateInitial;
     private Date dateFinished;
+    
+    public Payment(int id, Plates idPlates, float cost, Date dateInitial, Date dateFinished) {
+        this.id = id;
+        this.idPlates = idPlates;
+        this.cost = cost;
+        this.dateInitial = dateInitial;
+        this.dateFinished = dateFinished;
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" + "id=" + id + ", idPlates=" + idPlates + ", cost=" + cost + ", dateInitial=" + dateInitial + ", dateFinished=" + dateFinished + '}';
+    }
     
     public void insert(){
         

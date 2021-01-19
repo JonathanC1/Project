@@ -7,15 +7,29 @@ package ec.edu.espe.recognitionofplates.model;
 
 /**
  *
- * @author Group2
+ * @author Group2 Sigma Programmers
  */
 public class Image {
-    private int id;
+    private int idImage;
     private float imageHigh;
     private float imageWidth;
     private float imageX;
     private float imageY;
     private String imagePath;
+    
+    public Image(int idImage, float imageHigh, float imageWidth, float imageX, float imageY, String imagePath) {
+        this.idImage = idImage;
+        this.imageHigh = imageHigh;
+        this.imageWidth = imageWidth;
+        this.imageX = imageX;
+        this.imageY = imageY;
+        this.imagePath = imagePath;
+    }
+
+    @Override
+    public String toString() {
+        return "Image{" + "idImage=" + idImage + ", imageHigh=" + imageHigh + ", imageWidth=" + imageWidth + ", imageX=" + imageX + ", imageY=" + imageY + ", imagePath=" + imagePath + '}';
+    }
     
     public void saveImage(){
         
@@ -34,17 +48,17 @@ public class Image {
     }
 
     /**
-     * @return the id
+     * @return the idImage
      */
-    public int getId() {
-        return id;
+    public int getIdImage() {
+        return idImage;
     }
 
     /**
-     * @param id the id to set
+     * @param idImage the idImage to set
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setIdImage(int idImage) {
+        this.idImage = idImage;
     }
 
     /**
@@ -116,5 +130,6 @@ public class Image {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
+
     
 }

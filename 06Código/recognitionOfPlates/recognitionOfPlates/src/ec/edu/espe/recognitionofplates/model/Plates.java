@@ -7,11 +7,21 @@ package ec.edu.espe.recognitionofplates.model;
 
 /**
  *
- * @author Group2
+ * @author Group2 Sigma Programmers
  */
 public class Plates {
-    private int id;
+    private int idPlates;
     private String description;
+    
+    public Plates(int idPlates, String description) {
+        this.idPlates = idPlates;
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Plates{" + "idPlates=" + idPlates + ", description=" + description + '}';
+    }
     
     public void insert(){
         
@@ -26,17 +36,17 @@ public class Plates {
     }
 
     /**
-     * @return the id
+     * @return the idPlates
      */
-    public int getId() {
-        return id;
+    public int getIdPlates() {
+        return idPlates;
     }
 
     /**
-     * @param id the id to set
+     * @param idPlates the idPlates to set
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setIdPlates(int idPlates) {
+        this.idPlates = idPlates;
     }
 
     /**
@@ -52,5 +62,6 @@ public class Plates {
     public void setDescription(String description) {
         this.description = description;
     }
+
     
 }
