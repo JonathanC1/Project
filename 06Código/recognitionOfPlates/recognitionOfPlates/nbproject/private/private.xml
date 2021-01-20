@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<<<<<<< HEAD
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group/>
+=======
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/POO%202858/SINCRONIZADO%20EN%20LA%20NUBE%20GITHUB/Project/06Código/recognitionOfPlates/recognitionOfPlates/src/recognitionofplates/RecognitionOfPlates.java</file>
+            <file>file:/D:/POO%202858/SINCRONIZADO%20EN%20LA%20NUBE%20GITHUB/Project/06Código/recognitionOfPlates/recognitionOfPlates/src/ec/edu/espe/recognitionofplates/model/Plates.java</file>
+            <file>file:/D:/POO%202858/SINCRONIZADO%20EN%20LA%20NUBE%20GITHUB/Project/06Código/recognitionOfPlates/recognitionOfPlates/src/ec/edu/espe/recognitionofplates/model/Image.java</file>
+            <file>file:/D:/POO%202858/SINCRONIZADO%20EN%20LA%20NUBE%20GITHUB/Project/06Código/recognitionOfPlates/recognitionOfPlates/src/ec/edu/espe/recognitionofplates/model/Payment.java</file>
+            <file>file:/D:/POO%202858/SINCRONIZADO%20EN%20LA%20NUBE%20GITHUB/Project/06Código/recognitionOfPlates/recognitionOfPlates/src/ec/edu/espe/recognitionofplates/model/ImageString.java</file>
+        </group>
+>>>>>>> 1fa8f5ec6e209cdc618a9d875fefef6bb1de4cb4
     </open-files>
 </project-private>
