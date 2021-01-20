@@ -11,25 +11,37 @@ import java.util.logging.Logger;
 
 public class RecognitionOfPlates {    
     
-    public static void menu(){
-        System.out.println("-----UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE-----");
-        System.out.println("-------------------------------------------------");
-        System.out.println("----------------SIGMA PROGRAMMERS----------------");
+public static void menu(){
+        System.out.println("");
         System.out.println("1. Input Date");
         System.out.println("2. Search Data");
         System.out.println("3. Exit");
-        System.out.println("Select the option: ");
+        System.out.print("\nSelect the option: ");
+    }
+    public static void menu1(){
+        System.out.println("");
+        System.out.println("1. Input Date");
+        System.out.println("2. Exit");
+        System.out.print("\nSelect the option: ");
+    
+    }
+    public static void welcome(){
+        System.out.println("\n-----UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE-----");
+        System.out.println("-------------------------------------------------");
+        System.out.println("----------------SIGMA PROGRAMMERS----------------\n");
+    
     }
     
     public static void inData() throws IOException{
        Scanner read = new Scanner(System.in);
        
-       System.out.println("Input your name: ");
+       System.out.print("Input your name: ");
        String name = read.nextLine();
-       System.out.println(name + " Input your lastname:");
+       System.out.print(name + " Input your lastname: ");
        String lastName = read.nextLine();
-       System.out.println(name + " Input your plate");
+       System.out.print(name + " Input your plate: ");
        String plate = read.nextLine();
+       
        
        Person person = new Person(name,lastName,plate);
              
@@ -42,17 +54,11 @@ public class RecognitionOfPlates {
    }
    
     public static void outData(String name, String lastName, String plate){
+       System.out.println(" ");
        System.out.println("NAME: " + name);
        System.out.println("LASTNAME: " + lastName);
        System.out.println("PLATE: " + plate);   
    }
-    
-    
-    
-      public void write(){
-      System.out.println("");
-                         }
-    
     
     public static void student(){
         Scanner read = new Scanner(System.in);
@@ -71,19 +77,9 @@ public class RecognitionOfPlates {
                 }
                 
                 case 2:{
-              
-  
-                 break;   
-                }
-                
-                case 3:{
                     System.out.println("Thank for use the program :)");
                     break;
                 }
-                
-                
-                
-                
                 default:{
                     System.out.println("option no recognized");
                     break;
@@ -117,11 +113,11 @@ public class RecognitionOfPlates {
                 }
 
                 case 3:{
-                    System.out.println("Thank for use the program :)");
+                    System.out.println("\nThank for use the program :)");
                     break;
                 }
                 default:{
-                    System.out.println("option no recognized");
+                    System.out.println("\nOption no recognized.");
                     break;
                 }
             }
@@ -130,21 +126,26 @@ public class RecognitionOfPlates {
     } 
     
     public static void main(String[] args){
+        
+        
         Scanner read = new Scanner(System.in);
-
-        menu();
-        System.out.println("USER: ");
+        
+        welcome();
+        System.out.println("\nEnter the start data");
+        System.out.print("USER: ");
         String user = read.next();
-        System.out.println("PASSWORD: ");
+        System.out.print("PASSWORD: ");
         String password = read.next();
         
         
         if(user.equalsIgnoreCase("Student") && password.equalsIgnoreCase("012345")){
+            menu1();
             student();
         }else if(user.equalsIgnoreCase("Teacher") && password.equalsIgnoreCase("123450")){
+            menu();
             teacher();
         }else{
-            System.out.println("USER OR PASSWORD INCORRECT!!");
+            System.out.println("\nUSER OR PASSWORD INCORRECT!!");
         }
     }
 }
