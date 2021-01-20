@@ -1,6 +1,7 @@
 package recognitionof_plates;
 
-import ec.edu.espe.FileManager.utils.Data; 
+
+import ec.edu.espe.FileMananger.utils.Data;
 import ec.edu.espe.recognition_ofplates.model.Person;
 import java.io.File;
 import java.io.IOException;
@@ -46,6 +47,13 @@ public class RecognitionOfPlates {
        System.out.println("PLATE: " + plate);   
    }
     
+    
+    
+      public void write(){
+      System.out.println("");
+                         }
+    
+    
     public static void student(){
         Scanner read = new Scanner(System.in);
         int option = 0;
@@ -54,22 +62,35 @@ public class RecognitionOfPlates {
             option = read.nextInt();
             switch(option){
                 case 1:{
-                    System.out.println("What word going to search? ");
-                    String word = read.next();
-                    Data.find(new File("find.csv"),word);
+                    try {
+                        inData();
+                    } catch (IOException ex) {
+                        Logger.getLogger(RecognitionOfPlates.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     break;
                 }
                 
                 case 2:{
+              
+  
+                 break;   
+                }
+                
+                case 3:{
                     System.out.println("Thank for use the program :)");
                     break;
                 }
+                
+                
+                
+                
                 default:{
                     System.out.println("option no recognized");
                     break;
                 }
             }
         }while(option!=2);
+    
     }  
     
     public static void teacher(){
@@ -116,6 +137,7 @@ public class RecognitionOfPlates {
         String user = read.next();
         System.out.println("PASSWORD: ");
         String password = read.next();
+        
         
         if(user.equalsIgnoreCase("Student") && password.equalsIgnoreCase("012345")){
             student();
