@@ -2,7 +2,7 @@ package recognitionof_plates;
 
 
 import ec.edu.espe.FileMananger.utils.Data;
-import ec.edu.espe.recognition_ofplates.model.Person;
+import ec.edu.espe.recognitionofplates.model.Person;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
