@@ -1,0 +1,35 @@
+Inspector: Group Five (Shark Mind Tec) Rivera Amanda, Sacancela Christian, Tavaris Luis
+
+                        
+                                       Roles                           
+
+Authors:                   Sigma Programmers
+ 
+Reviewer:                 Group Five (Shark Mind Tec)             
+
+Scribe:                   Rivera Amanda, Sacancela Christian, Tavaris Luis
+
+
+
+
+•	First error encountered is that the Project folder should have the name of your group
+•	In the 04-UML Diagram folder there are no 01-Use Case and 02-ClassDiagram folders
+•	Bad organization in the UML-Diagram folder
+•	In definition, the file of the first report where we underline the nouns cannot be found
+•	References not found in IEEE file
+•	The document Problematic.pdf must be in the definition folder
+•	In the main class there are added methods that are not registered in the files
+•	In line 136 of the main class the recognition of spaces is not validated
+•	There are no rules for entering a user
+•	uppercase and lowercase input is not validated
+•	in the indata method of the main class it does not specify to put two names or only one
+•	In case of not entering the password correctly, it does not ask for entry again but rather expels you from the program
+•	In the indata method of the main class, the input of the data plate has errors in line 46,72 and 143 does not specify the input format
+•	The person class does not use the id attribute
+•	in the student method of the main class there is no limit for the number of unrecognized options
+•	You have not created Gson files
+•	In the call of the person class with 3 attributes of the indata method of the main class it is having problems because it does not recognize the two different constructors that are in the person class
+•	In the first constructor, person calls only 3 attributes name last name and the plate and in the other it calls the attributes id, name last name and plate
+•	Tests were made with the two constructors and with the first one there was an error with red letters and with the second one of the person class we had to delete the id attribute and that way it works to save the information in the csv file
+•	in the teacher method of the main class in case 2 there is no find.csv file
+•	In main class methods they are not capitalized in the first letter
