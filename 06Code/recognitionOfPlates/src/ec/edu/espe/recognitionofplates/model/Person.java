@@ -11,10 +11,12 @@ public class Person {
     private String lastName;
     private String plate;
 
-    public Person(String name, String lastName, String plate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    public Person(){
+        this.name =" ";
+        this.lastName =" ";
+        this.plate =" ";
+            
+    } 
     
     @Override
     public String toString() {
