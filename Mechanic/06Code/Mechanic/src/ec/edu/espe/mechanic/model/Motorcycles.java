@@ -9,6 +9,6 @@ package ec.edu.espe.mechanic.model;
  *
  * @author ELEN
  */
-public class Accesories extends Products{
-
+public class Motorcycles {
+    
 }

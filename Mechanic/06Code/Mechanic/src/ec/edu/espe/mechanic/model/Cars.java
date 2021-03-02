@@ -7,8 +7,8 @@ package ec.edu.espe.mechanic.model;
 
 /**
  *
- * @author lucia
+ * @author ELEN
  */
-public class Employees {
+public class Cars {
     
 }

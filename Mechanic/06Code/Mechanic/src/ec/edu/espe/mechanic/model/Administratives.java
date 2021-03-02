@@ -5,10 +5,14 @@
  */
 package ec.edu.espe.mechanic.model;
 
+
 /**
  *
- * @author lucia
+ * @author Sigmma Programers
  */
 public class Administratives {
     
+  
+        
+   
 }
