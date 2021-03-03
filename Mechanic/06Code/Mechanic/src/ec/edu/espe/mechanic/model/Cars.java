@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.model;
 
 /**
  *
- * @author Sigmma Programmers
+ * @author ELEN
  */
 public class Cars {
     

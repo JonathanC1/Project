@@ -5,19 +5,16 @@
  */
 package ec.edu.espe.mechanic.model;
 
-import java.util.Date;
-
 /**
  *
- * @author Sigmma Programmers
+ * @author ELEN
  */
 public class Bills {
     private Clients client;
     private int numberOfBill = 1;
     private float priceOfWorkforce;
     private float discount;
-    private Date date;
-    
+
     public void totalPartsUsed(){
         
         
@@ -27,17 +24,24 @@ public class Bills {
         
         
     }
-
-    public Bills(Clients client, float priceOfWorkforce, float discount, Date date) {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public Bills(Clients client, float priceOfWorkforce, float discount) {
         this.client = client;
         this.priceOfWorkforce = priceOfWorkforce;
         this.discount = discount;
-        this.date = date;
     }
 
     @Override
     public String toString() {
-        return "Bills{" + "client=" + client + ", numberOfBill=" + numberOfBill + ", priceOfWorkforce=" + priceOfWorkforce + ", discount=" + discount + ", date=" + date + '}';
+        return "Bills{" + "client=" + client + ", numberOfBill=" + numberOfBill + ", priceOfWorkforce=" + priceOfWorkforce + ", discount=" + discount + '}';
     }
     
 
@@ -96,19 +100,5 @@ public class Bills {
      */
     public void setDiscount(float discount) {
         this.discount = discount;
-    }
-
-    /**
-     * @return the date
-     */
-    public Date getDate() {
-        return date;
-    }
-
-    /**
-     * @param date the date to set
-     */
-    public void setDate(Date date) {
-        this.date = date;
     }
 }

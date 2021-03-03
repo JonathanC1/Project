@@ -5,25 +5,17 @@
  */
 package ec.edu.espe.mechanic.model;
 
+
+
 /**
  *
- * @author Sigmma Programmers
+ * @author ELEN
  */
 public class Products {
+
     private String name ;
     private int quanty;
     private int price;
-
-    public Products(String name, int quanty, int price) {
-        this.name = name;
-        this.quanty = quanty;
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Products{" + "name=" + name + ", quanty=" + quanty + ", price=" + price + '}';
-    }
 
     /**
      * @return the name
@@ -68,6 +60,10 @@ public class Products {
     }
     
     
-        
+/*=======
+    String name ;
+    int quanty;
+>>>>>>> e4b3f82c2e54cd426697e6d1e44a137df95afedb
+        */
     
 }

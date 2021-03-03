@@ -9,11 +9,6 @@ package ec.edu.espe.mechanic.model;
  *
  * @author ELEN
  */
-public class Mechanics extends Person {
-    String specialty;
-
-    public Mechanics(String name, String lastname, String Email, String ID) {
-        super(name, lastname, Email, ID);
-    }
+public class Washers {
     
 }

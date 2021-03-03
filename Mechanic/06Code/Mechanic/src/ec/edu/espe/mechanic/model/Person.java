@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Sigmma Programmers
+ * @author lucia
  */
 public class Person {
     private String name;
