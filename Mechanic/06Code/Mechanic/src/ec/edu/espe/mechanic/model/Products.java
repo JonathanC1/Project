@@ -10,5 +10,8 @@ package ec.edu.espe.mechanic.model;
  * @author ELEN
  */
 public class Products {
+    String name ;
+        int quanty;
+        
     
 }

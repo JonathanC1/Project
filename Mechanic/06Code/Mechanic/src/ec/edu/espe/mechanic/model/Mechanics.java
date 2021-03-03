@@ -9,6 +9,6 @@ package ec.edu.espe.mechanic.model;
  *
  * @author ELEN
  */
-public class Mechanics {
+public class Mechanics extends Person {
     
 }
