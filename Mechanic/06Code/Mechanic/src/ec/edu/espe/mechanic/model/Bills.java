@@ -8,13 +8,14 @@ package ec.edu.espe.mechanic.model;
 /**
  *
  * @author ELEN
+ * @author Roberth C
  */
 public class Bills {
     private Clients client;
     private int numberOfBill = 1;
     private float priceOfWorkforce;
     private float discount;
-
+    
     public void totalPartsUsed(){
         
         
@@ -24,13 +25,6 @@ public class Bills {
         
         
     }
-    
-    
-    
-    
-    
-    
-    
     
     
     public Bills(Clients client, float priceOfWorkforce, float discount) {
