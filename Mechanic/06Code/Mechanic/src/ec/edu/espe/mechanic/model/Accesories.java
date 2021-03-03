@@ -7,8 +7,12 @@ package ec.edu.espe.mechanic.model;
 
 /**
  *
- * @author ELEN
+ * @author Sigmma Programmers
  */
 public class Accesories extends Products{
+
+    public Accesories(String name, int quanty, int price) {
+        super(name, quanty, price);
+    }
 
 }

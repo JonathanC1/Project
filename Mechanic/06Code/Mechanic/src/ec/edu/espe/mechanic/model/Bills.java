@@ -7,8 +7,7 @@ package ec.edu.espe.mechanic.model;
 
 /**
  *
- * @author ELEN
- * @author Roberth C
+ * @author Sigmma Programmers
  */
 public class Bills {
     private Clients client;

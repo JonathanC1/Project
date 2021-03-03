@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.model;
 
 /**
  *
- * @author ELEN
+ * @author Sigmma Programmers
  */
 public class Clients extends Person{
     

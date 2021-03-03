@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.view;
 
 /**
  *
- * @author ELEN
+ * @author Sigmma Programmers
  */
 public class MechanicSystem {
     
