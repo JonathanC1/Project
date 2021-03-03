@@ -9,6 +9,14 @@ package ec.edu.espe.mechanic.model;
  *
  * @author ELEN
  */
-public class Services {
+public class Services extends Vehicles{
+
+    public Services(int year, String Registration, String Plate, String trademakak, String model, float mileage) {
+        super(year, Registration, Plate, trademakak, model, mileage);
+    }
+    
+    public void review(){
+    
+    }
     
 }
