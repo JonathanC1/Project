@@ -11,7 +11,7 @@ package ec.edu.espe.mechanic.model;
  */
 public class Products {
     String name ;
-        int quanty;
+    int quanty;
         
     
 }

@@ -11,6 +11,10 @@ package ec.edu.espe.mechanic.model;
  */
 public class Clients extends Person{
     
+    public Clients(String name, String lastname, String Email, String ID) {
+        super(name, lastname, Email, ID);
+    }
+    
   
     
     

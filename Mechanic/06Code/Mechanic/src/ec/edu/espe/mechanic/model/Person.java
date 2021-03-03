@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.mechanic.model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author lucia
@@ -15,6 +17,17 @@ public class Person {
     private String Email;
     private String ID;
 
+    public Person(String name, String lastname, String Email, String ID) {
+        this.name = name;
+        this.lastname = lastname;
+        this.Email = Email;
+        this.ID = ID;
+    }
+    
+    @Override
+    public String toString() {
+        return  "name=" + name + ",lastName=" + lastname + ",Email=" + Email + ", ID =" + ID ;
+    }
     /**
      * @return the name
      */
