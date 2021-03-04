@@ -10,7 +10,11 @@ package ec.edu.espe.mechanic.model;
  *
  * @author Sigmma Programers
  */
-public class Administratives {
+public class Administratives extends Person {
+    
+    public Administratives(String name, String lastname, String Email, String ID) {
+        super(name, lastname, Email, ID);
+    }
     
   
         
