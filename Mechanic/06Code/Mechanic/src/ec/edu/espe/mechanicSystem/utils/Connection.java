@@ -6,6 +6,9 @@
 package ec.edu.espe.mechanicSystem.utils;
 
 import com.mongodb.ConnectionString;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;
@@ -16,8 +19,7 @@ import com.mongodb.MongoClientURI;
  * @author Sigma Programmers
  */
 public class Connection {
-
-
+  
 ConnectionString connString = new ConnectionString(
     "mongodb+srv://LuciG:<0852luci0852GL>@cluster0.2tjah.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 );
