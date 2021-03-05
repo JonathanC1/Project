@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author dinoc
+ * @author Sigma Programmers
  */
 public class Login extends javax.swing.JFrame {
     DB db;

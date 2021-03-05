@@ -13,7 +13,7 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoClientURI;
 /**
  *
- * @author lucia
+ * @author Sigma Programmers
  */
 public class Connection {
 

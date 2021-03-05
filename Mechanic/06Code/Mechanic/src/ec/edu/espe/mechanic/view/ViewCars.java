@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author ELEN
+ * @author Sigma Programmers
  */
 public class ViewCars extends javax.swing.JFrame {
 

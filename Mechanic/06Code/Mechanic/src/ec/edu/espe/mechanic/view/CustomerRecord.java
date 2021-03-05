@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author EUNICE COYAGO
+ * @author Sigma Programmers
  */
 public class CustomerRecord extends javax.swing.JFrame {
 

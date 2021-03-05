@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.model;
 
 /**
  *
- * @author ELEN
+ * @author Sigma Programmers
  */
 public class SpareParts {
     

@@ -9,7 +9,7 @@ import ec.edu.espe.mechanic.view.ViewCustomer;
 
 /**
  *
- * @author ELEN
+ * @author Sigma Programmers
  */
 public class GUIEmployers extends javax.swing.JFrame {
 

@@ -12,7 +12,7 @@ import com.mongodb.DBCollection;
 
 /**
  *
- * @author lucia
+ * @author Sigma Programmers
  */
 public class Operation {
     public static void add (DB db, String name, String Lastname, String Email, string ID){
