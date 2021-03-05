@@ -136,7 +136,28 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-        DBCursor cursor = users.find();
+        String user = txtuser.getText();
+        String password = pswuser.getText();
+        
+        if (user.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "FILL ALL THE FIELDS PLEASE");
+        } else {
+            if (user.equals("Pepe") && password.equals("12345")) {
+                JOptionPane.showMessageDialog(null, "Welcome " + user);
+                GUIEmployers  guiemployers  = new GUIEmployers ();
+                guiemployers.setVisible(true);
+                this.dispose();
+            } else if (user.equals("Worker") && password.equals("123work")) {
+                JOptionPane.showMessageDialog(null, "Welcome " + user);
+                GUIEmployers  guiemployers  = new GUIEmployers ();
+                guiemployers.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "User or Password inorrect");
+            }
+             this.setVisible(false);
+            
+        }
         
         
 
@@ -207,6 +228,7 @@ public class Login extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
