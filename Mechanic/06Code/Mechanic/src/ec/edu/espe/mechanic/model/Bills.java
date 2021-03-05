@@ -10,7 +10,7 @@ package ec.edu.espe.mechanic.model;
  * @author ELEN
  */
 public class Bills {
-    private Clients client;
+    private Customer client;
     private int numberOfBill = 1;
     private float priceOfWorkforce;
     private float discount;
@@ -33,7 +33,7 @@ public class Bills {
     
     
     
-    public Bills(Clients client, float priceOfWorkforce, float discount) {
+    public Bills(Customer client, float priceOfWorkforce, float discount) {
         this.client = client;
         this.priceOfWorkforce = priceOfWorkforce;
         this.discount = discount;
@@ -49,14 +49,14 @@ public class Bills {
     /**
      * @return the client
      */
-    public Clients getClient() {
+    public Customer getClient() {
         return client;
     }
 
     /**
      * @param client the client to set
      */
-    public void setClient(Clients client) {
+    public void setClient(Customer client) {
         this.client = client;
     }
 

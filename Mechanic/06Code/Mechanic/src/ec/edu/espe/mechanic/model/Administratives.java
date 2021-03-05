@@ -12,8 +12,8 @@ package ec.edu.espe.mechanic.model;
  */
 public class Administratives extends Person {
     
-    public Administratives(String name, String lastname, String Email, String ID) {
-        super(name, lastname, Email, ID);
+    public Administratives(String name, String lastname, String telephoneNumber, String Email, String ID) {
+        super(name, lastname, telephoneNumber, Email, ID);
     }
     
   

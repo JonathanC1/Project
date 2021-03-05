@@ -5,7 +5,7 @@
  */
 package ec.edu.espe.mechanic.view;
 
-import ec.edu.espe.mechanic.view.ViewClients;
+import ec.edu.espe.mechanic.view.ViewCustomer;
 
 /**
  *
@@ -18,6 +18,7 @@ public class GUIEmployers extends javax.swing.JFrame {
      */
     public GUIEmployers() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -152,7 +153,7 @@ public class GUIEmployers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        ViewClients viewClients = new ViewClients();
+        ViewCustomer viewClients = new ViewCustomer();
         viewClients.setVisible(true);
         this.dispose();
         // TODO add your handling code here:

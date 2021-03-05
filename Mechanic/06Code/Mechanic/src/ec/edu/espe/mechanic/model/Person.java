@@ -14,19 +14,21 @@ import java.util.Scanner;
 public class Person {
     private String name;
     private String lastname;
+    private String telephoneNumber;
     private String Email;
     private String ID;
 
-    public Person(String name, String lastname, String Email, String ID) {
+    public Person(String name, String lastname, String telephoneNumber, String Email, String ID) {
         this.name = name;
         this.lastname = lastname;
+        this.telephoneNumber = telephoneNumber;
         this.Email = Email;
         this.ID = ID;
     }
     
     @Override
     public String toString() {
-        return  "name=" + name + ",lastName=" + lastname + ",Email=" + Email + ", ID =" + ID ;
+        return  "name=" + getName() + ",lastName=" + getLastname() + ",telephoneNumber=" + getTelephoneNumber() + ",Email=" + getEmail() + ", ID =" + getID() ;
     }
     /**
      * @return the name
@@ -82,6 +84,20 @@ public class Person {
      */
     public void setID(String ID) {
         this.ID = ID;
+    }
+
+    /**
+     * @return the telephoneNumber
+     */
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    /**
+     * @param telephoneNumber the telephoneNumber to set
+     */
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
     
 }

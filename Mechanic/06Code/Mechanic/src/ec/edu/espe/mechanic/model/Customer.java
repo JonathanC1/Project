@@ -9,10 +9,10 @@ package ec.edu.espe.mechanic.model;
  *
  * @author ELEN
  */
-public class Clients extends Person{
+public class Customer extends Person{
     
-    public Clients(String name, String lastname, String Email, String ID) {
-        super(name, lastname, Email, ID);
+    public Customer(String name, String lastname, String telephoneNumber, String Email, String ID) {
+        super(name, lastname, telephoneNumber, Email, ID);
     }
     
   
