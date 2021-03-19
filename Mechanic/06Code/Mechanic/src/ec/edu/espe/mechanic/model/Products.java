@@ -17,6 +17,13 @@ public class Products {
     private int quanty;
     private int price;
 
+    public Products(String name, int quanty, int price) {
+        this.name = name;
+        this.quanty = quanty;
+        this.price = price;
+    }
+
+    
     /**
      * @return the name
      */

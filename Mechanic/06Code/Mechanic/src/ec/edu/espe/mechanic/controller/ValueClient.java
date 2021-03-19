@@ -5,10 +5,21 @@
  */
 package ec.edu.espe.mechanic.controller;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+
 /**
  *
  * @author ELEN
  */
 public class ValueClient {
+    BasicDBObject document = new BasicDBObject();
+    
+     public DBObject addUser(String name,String  ){
+    
+    document.put( "Name",name );
+    document.put( "Password", password);
+    return null;
+    }
     
 }
