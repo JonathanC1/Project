@@ -3,32 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.espe.mechanicSystem.utils;
+package ec.edu.espe.mechanic.utils;
 
-import com.mongodb.ConnectionString;
 import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.MongoClientSettings;
-import com.mongodb.MongoClientURI;
 /**
  *
  * @author Sigma Programmers
  */
 public class Connection {
   
-ConnectionString connString = new ConnectionString(
-    "mongodb+srv://LuciG:<0852luci0852GL>@cluster0.2tjah.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-);
-MongoClientSettings settings = MongoClientSettings.builder()
-    .applyConnectionString(connString)
-    .retryWrites(true)
-    .build();
-MongoClient mongoClient = MongoClients.create(settings);
-MongoDatabase database = mongoClient.getDatabase("Documents");
+public static void main(String[]args) {
+        
+        com.mongodb.MongoClient mongo = connection("mongodb+srv://Jonathan:Jonathan.13@mechanicsystem.1uvae.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+       
+        // SI NO EXISTE LA BASE DE DATOS LA CREAMOS
+        if(mongo != null) {
+            DB db = mongo.getDB("MechanicSystem");   
+        }  
+        
+        Input(mongo.getDB("MechanicSystem"),"Data","Jonathan","L12");
+        InputClient(DB db, String coleccion, String name, String lastname, String telephoneNumber, String email, String ci)
+    }
 }
 
 

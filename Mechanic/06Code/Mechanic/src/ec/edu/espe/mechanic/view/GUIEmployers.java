@@ -5,7 +5,7 @@
  */
 package ec.edu.espe.mechanic.view;
 
-import ec.edu.espe.mechanic.view.ViewCustomer;
+import ec.edu.espe.mechanic.view.GUIViewCustomer;
 
 /**
  *
@@ -235,7 +235,7 @@ public class GUIEmployers extends javax.swing.JFrame {
 
     private void addClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addClientsMouseClicked
         // TODO add your handling code here:
-        CustomerRecord record = new CustomerRecord();
+        GUICustomerRecord record = new GUICustomerRecord();
         record.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_addClientsMouseClicked
@@ -250,7 +250,7 @@ public class GUIEmployers extends javax.swing.JFrame {
 
     private void btnviewClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewClientsMouseClicked
         // TODO add your handling code here:
-        ViewCustomer viewClients = new ViewCustomer();
+        GUIViewCustomer viewClients = new GUIViewCustomer();
         viewClients.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnviewClientsMouseClicked
@@ -274,7 +274,7 @@ public class GUIEmployers extends javax.swing.JFrame {
 
     private void btnBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBillMouseClicked
         // TODO add your handling code here:
-        Bills bill = new Bills();
+        GUIBill bill = new GUIBill();
         bill.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBillMouseClicked
