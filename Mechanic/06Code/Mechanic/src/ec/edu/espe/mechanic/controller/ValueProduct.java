@@ -5,10 +5,21 @@
  */
 package ec.edu.espe.mechanic.controller;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+
 /**
  *
  * @author ELEN
  */
 public class ValueProduct {
+     BasicDBObject document = new BasicDBObject();
     
+    public DBObject addProduct(String name, int quanty, int price ){
+    
+    document.put( "Name",name );
+    document.put( "quanty", quanty);
+    document.put( "price", price);
+    return null;
+    }
 }

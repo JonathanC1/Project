@@ -5,10 +5,26 @@
  */
 package ec.edu.espe.mechanic.controller;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+
 /**
  *
  * @author ELEN
  */
 public class ValueVehicle {
+    BasicDBObject document = new BasicDBObject();
+    
+    public DBObject addVehicle(int year, String Registration, String Plate, String trademakak, String model, float mileage ){
+    
+    document.put( "year",year );
+    document.put( "Registration", Registration);
+    document.put( "Plate", Plate);
+    document.put( "trademakak",trademakak );
+    document.put( "model", model);
+    document.put( "mileage", mileage);
+    return null;
+    }
+    
     
 }

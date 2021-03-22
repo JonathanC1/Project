@@ -15,10 +15,13 @@ import com.mongodb.DBObject;
 public class ValueClient {
     BasicDBObject document = new BasicDBObject();
     
-     public DBObject addUser(String name,String  ){
+     public DBObject addClient(String name, String lastname, String telephoneNumber, String Email,String ID ){
     
     document.put( "Name",name );
-    document.put( "Password", password);
+    document.put( "lastname ", lastname);
+    document.put( "telephoneNumber", telephoneNumber);
+    document.put( "Email",Email);
+     document.put( "ID",ID);
     return null;
     }
     
