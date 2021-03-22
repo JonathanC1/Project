@@ -9,7 +9,7 @@ package ec.edu.espe.mechanic.model;
  *
  * @author Sigma Programmers
  */
-public class Motorcycles extends Vehicles {
+public class Motorcycles extends Vehicle {
     
     
     public Motorcycles(int year, String Registration, String Plate, String trademakak, String model, float mileage) {

@@ -9,7 +9,7 @@ package ec.edu.espe.mechanic.model;
  *
  * @author Sigma Programmers
  */
-public class Bills {
+public class Bill {
     private Customer client;
     private int numberOfBill = 1;
     private float priceOfWorkforce;
@@ -33,7 +33,7 @@ public class Bills {
     
     
     
-    public Bills(Customer client, float priceOfWorkforce, float discount) {
+    public Bill(Customer client, float priceOfWorkforce, float discount) {
         this.client = client;
         this.priceOfWorkforce = priceOfWorkforce;
         this.discount = discount;

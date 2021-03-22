@@ -9,10 +9,6 @@ package ec.edu.espe.mechanic.model;
  *
  * @author Sigma Programmers
  */
-public class Cars extends Vehicles{
-    
-    public Cars(int year, String Registration, String Plate, String trademakak, String model, float mileage) {
-        super(year, Registration, Plate, trademakak, model, mileage);
-    }
+public class Launderer {
     
 }

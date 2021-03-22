@@ -9,7 +9,7 @@ package ec.edu.espe.mechanic.model;
  *
  * @author Sigma Programmers
  */
-public class Vehicles {
+public class Vehicle {
     private int year;
     private String Registration;
     private String Plate;
@@ -17,7 +17,7 @@ public class Vehicles {
     private String model;
     private float mileage;
 
-    public Vehicles(int year, String Registration, String Plate, String trademakak, String model, float mileage) {
+    public Vehicle(int year, String Registration, String Plate, String trademakak, String model, float mileage) {
         this.year = year;
         this.Registration = Registration;
         this.Plate = Plate;

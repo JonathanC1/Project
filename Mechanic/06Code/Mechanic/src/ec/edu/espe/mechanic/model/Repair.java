@@ -9,6 +9,6 @@ package ec.edu.espe.mechanic.model;
  *
  * @author Sigma Programmers
  */
-public class Repairs {
+public class Repair {
     
 }
