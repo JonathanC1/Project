@@ -41,10 +41,7 @@ public class MechanicSystem {
         
         System.out.println("\n");
 
-        switch () {
-
-        }
-
+      
     }
     
     public static void menuMechanic() {
@@ -52,9 +49,7 @@ public class MechanicSystem {
         
         System.out.println("\n");
 
-        switch () {
-
-        }
+       
 
     }
     
@@ -63,9 +58,6 @@ public class MechanicSystem {
         
         System.out.println("\n");
 
-        switch () {
-
-        }
-
+      
     }
 }

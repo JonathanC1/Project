@@ -11,13 +11,13 @@ package ec.edu.espe.mechanic.model;
  *
  * @author Sigma Programmers
  */
-public class Products {
+public class Product {
 
     private String name ;
     private int quanty;
     private int price;
 
-    public Products(String name, int quanty, int price) {
+    public Product(String name, int quanty, int price) {
         this.name = name;
         this.quanty = quanty;
         this.price = price;

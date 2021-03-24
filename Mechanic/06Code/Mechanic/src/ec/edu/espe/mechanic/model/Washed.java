@@ -7,8 +7,8 @@ package ec.edu.espe.mechanic.model;
 
 /**
  *
- * @author Sigma Programmers
+ * @author Sigmma Programmers
  */
-public class Washers {
+public class Washed {
     
 }
