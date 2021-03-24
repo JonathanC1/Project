@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.mechanic.view;
 
+import ec.edu.espe.mechanic.controller.ValueClient;
+import ec.edu.espe.mechanic.model.Customer;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -307,7 +309,7 @@ public class GUICustomerRecord extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        String[] info=new String[5];
+       String[] info=new String[5];
         info[0]=txtName.getText();
         info[1]=txtLastName.getText();
         info[2]=txtTelephoneNumber.getText();
@@ -319,6 +321,25 @@ public class GUICustomerRecord extends javax.swing.JFrame {
         txtTelephoneNumber.setText("");
         txtEmail.setText("");
         txtID.setText("");
+        
+       
+        Customer customer;
+        ValueClient valueclient = new ValueClient();
+        
+         String name;
+         String lastname;
+         String telephoneNumber;
+         String Email;
+         String ID;
+        
+        name = txtName.getText();
+        lastname = txtLastName.getText();
+        Email = txtEmail.getText();
+        telephoneNumber = txtTelephoneNumber.getText();
+        ID =txtID.getText();
+        
+         customer = new Customer(name, lastname, Email,telephoneNumber,ID);       
+        valueclient.create(customer);
     
     }//GEN-LAST:event_btnSaveActionPerformed
 
