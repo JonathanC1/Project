@@ -5,24 +5,31 @@
  */
 package ec.edu.espe.mechanic.controller;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
+import ec.edu.espe.mechanic.model.Customer;
+import ec.edu.espe.mechanic.utils.FileManager;
+import ec.edu.espe.mechanic.utils.Persistence;
+import javax.swing.JOptionPane;
+
+
 
 /**
  *
  * @author ELEN
  */
 public class ValueClient {
-    BasicDBObject document = new BasicDBObject();
-    
-     public DBObject addClient(String name, String lastname, String telephoneNumber, String Email,String ID ){
-    
-    document.put( "Name",name );
-    document.put( "lastname ", lastname);
-    document.put( "telephoneNumber", telephoneNumber);
-    document.put( "Email",Email);
-     document.put( "ID",ID);
-    return null;
+   
+     public boolean create(Customer customer){
+        boolean created = false;
+        String personData;
+        
+        Persistence persistence;
+
+        
+        persistence = new FileManager();
+        
+        if (persistence.save(customer.toString(),"Data.txt" )){
+           JOptionPane.showMessageDialog(null, customer + "was saved");
+        }  
+       return created;
     }
-    
 }
