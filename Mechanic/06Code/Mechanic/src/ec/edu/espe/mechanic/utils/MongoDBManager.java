@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.utils;
 
 /**
  *
- * @author Group 2
+ * @author sigma programers
  */
 public class MongoDBManager implements DBManager  {
 
@@ -22,7 +22,7 @@ public class MongoDBManager implements DBManager  {
     }
 
     @Override
-    public boolean save(String data, String table) {
+    public boolean create(String data, String table) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

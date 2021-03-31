@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.view;
 
 /**
  *
- * @author lucia
+ * @author sigma programers
  */
 public class GUIProducts extends javax.swing.JPanel {
 

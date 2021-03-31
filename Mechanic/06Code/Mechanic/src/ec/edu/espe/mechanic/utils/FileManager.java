@@ -1,22 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ec.edu.espe.mechanic.utils;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 /**
  *
- * @author Group 2
+ * @author sigma programers
  */
 public class FileManager implements Persistence {
 
     @Override
-    public boolean save(String data, String fileName) {
+    public boolean create(String data, String fileName) {
       boolean saved = false;
         createFile(fileName); 
       try{
@@ -55,6 +52,27 @@ public class FileManager implements Persistence {
         return created;
     }
 
+   public String read(String table) {
+        String readLine = "";
+
+        try {
+            File file = new File(table);
+            if (file.exists()) {
+                FileReader reader = new FileReader(file);
+                BufferedReader bufferedreader = new BufferedReader(reader);
+                readLine = bufferedreader.readLine();
+                bufferedreader.close();
+            }
+        } catch (Exception e) {
+            System.out.println("File don't found");
+        }
+        return readLine;
+    }
+   
+   
+   
+   
+   
     @Override
     public String find(String dataToFind, String field, String table) {
 
@@ -71,12 +89,8 @@ public class FileManager implements Persistence {
         return false;
     }
 
-    @Override
-    public String read(String table) {
-       
-        return null;
-    }
-    }
-    
-    
+
+}
+
+   
 

@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ELEN
+ * @author sigma programers
  */
 public class GUIBill extends javax.swing.JFrame {
 

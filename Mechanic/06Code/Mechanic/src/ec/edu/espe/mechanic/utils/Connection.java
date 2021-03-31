@@ -14,14 +14,15 @@ import com.mongodb.MongoClientURI;
  */
 public class Connection {
 
-    public static MongoClient createConnection() {
-        try {
+    public static MongoClient createConnection() { try {
             System.out.println("\nESTABLISHED CONNECTION");
-            MongoClientURI uri = new MongoClientURI(
-                    "mongodb+srv://Jonathan:Jonathan.13@mechanicsystem.1uvae.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+            
+MongoClientURI uri = new MongoClientURI(
+    "mongodb+srv://miltoncuji:miltoncuji@televisors.pvtoy.mongodb.net/Televisors?retryWrites=true&w=majority");
+MongoClient mongoClient = new MongoClient(uri);
 
-            MongoClient mongo = new MongoClient(uri);
-            return mongo;
+                
+            return mongoClient;
         } catch (Exception ex) {
             System.out.println("\nCONNECTION REFUSED");
             return null;

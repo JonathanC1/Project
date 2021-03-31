@@ -7,15 +7,15 @@ package ec.edu.espe.mechanic.utils;
 
 /**
  *
- * @author Group 2
+ * @author Sigma Programers
  */
 public interface Persistence {
-    boolean save(String data, String table );
+    boolean create(String data, String table );
     String find (String dataToFind, String field, String table);
     boolean update (String dataToFind, String newData, String table);
     boolean delete( String dataToFind, String table);
     String read (String table);
 
     
-    //find ("camila", "name", "data");-> camila garcia 
+  
 }

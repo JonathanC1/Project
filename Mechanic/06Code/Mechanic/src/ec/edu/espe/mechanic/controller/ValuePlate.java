@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.controller;
 
 /**
  *
- * @author ELEN
+ * @author sigma programers
  */
 public class ValuePlate {
     

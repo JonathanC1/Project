@@ -10,7 +10,7 @@ import com.mongodb.DBObject;
 
 /**
  *
- * @author ELEN
+ * @author sigma programers
  */
 public class ValueProduct {
      BasicDBObject document = new BasicDBObject();

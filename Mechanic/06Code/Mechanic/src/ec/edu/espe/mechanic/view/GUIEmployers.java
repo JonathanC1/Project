@@ -9,7 +9,7 @@ import ec.edu.espe.mechanic.view.GUIViewCustomer;
 
 /**
  *
- * @author Sigma Programmers
+ * @author sigma programers
  */
 public class GUIEmployers extends javax.swing.JFrame {
 
@@ -32,20 +32,7 @@ public class GUIEmployers extends javax.swing.JFrame {
 
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        exit = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        addClients = new javax.swing.JButton();
-        Text4 = new javax.swing.JLabel();
-        btnBill = new javax.swing.JButton();
-        Text3 = new javax.swing.JLabel();
-        Text2 = new javax.swing.JLabel();
-        btnViewCars = new javax.swing.JButton();
-        Text1 = new javax.swing.JLabel();
-        btnviewClients = new javax.swing.JButton();
-        Text5 = new javax.swing.JLabel();
-        products = new javax.swing.JButton();
-        addCars = new javax.swing.JButton();
-        Text6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -57,227 +44,37 @@ public class GUIEmployers extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit.png"))); // NOI18N
-        exit.setText("Exit");
-        exit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                exitMouseClicked(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("ADD CLIENTS");
-
-        addClients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/addClients.png"))); // NOI18N
-        addClients.setText("Clients");
-        addClients.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addClientsMouseClicked(evt);
-            }
-        });
-        addClients.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Exit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addClientsActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-
-        Text4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Text4.setText("EXIT");
-
-        btnBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/invoice.png"))); // NOI18N
-        btnBill.setText("Bills");
-        btnBill.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBillMouseClicked(evt);
-            }
-        });
-
-        Text3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Text3.setText("BILL");
-
-        Text2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Text2.setText("VIEW CARS");
-
-        btnViewCars.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cars.png"))); // NOI18N
-        btnViewCars.setText("jButton");
-        btnViewCars.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewCarsActionPerformed(evt);
-            }
-        });
-
-        Text1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Text1.setText("VIEW CLIENTS");
-
-        btnviewClients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clients.png"))); // NOI18N
-        btnviewClients.setText("Clients");
-        btnviewClients.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnviewClientsMouseClicked(evt);
-            }
-        });
-        btnviewClients.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnviewClientsActionPerformed(evt);
-            }
-        });
-
-        Text5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Text5.setText("ADD CARS");
-
-        products.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Products.png"))); // NOI18N
-        products.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productsActionPerformed(evt);
-            }
-        });
-
-        addCars.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/addCar.png"))); // NOI18N
-        addCars.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addCarsActionPerformed(evt);
-            }
-        });
-
-        Text6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Text6.setText("PRODUCTS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Text1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(btnviewClients, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(addClients, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Text2)
-                            .addComponent(btnViewCars, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addCars, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Text5)
-                        .addGap(13, 13, 13)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(Text3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(products, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(btnBill, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Text6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(Text4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62))))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(643, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(116, 116, 116))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Text2)
-                            .addComponent(Text1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(3, 3, 3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Text3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnViewCars)
-                                .addComponent(btnBill))
-                            .addComponent(btnviewClients))
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Text6)
-                            .addComponent(Text5)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addClients)
-                            .addComponent(addCars)
-                            .addComponent(products)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(Text4)
-                        .addGap(18, 18, 18)
-                        .addComponent(exit)))
-                .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(142, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addClientsMouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+ System.exit(0);
         // TODO add your handling code here:
-        GUICustomerRecord record = new GUICustomerRecord();
-        record.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_addClientsMouseClicked
-
-    private void btnViewCarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCarsActionPerformed
-        System.out.println("car ->" + btnViewCars.getText() );
-    }//GEN-LAST:event_btnViewCarsActionPerformed
-
-    private void addClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClientsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addClientsActionPerformed
-
-    private void btnviewClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewClientsMouseClicked
-        // TODO add your handling code here:
-        GUIViewCustomer viewClients = new GUIViewCustomer();
-        viewClients.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnviewClientsMouseClicked
-
-    private void btnviewClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewClientsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnviewClientsActionPerformed
-
-    private void productsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productsActionPerformed
-
-    private void addCarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCarsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addCarsActionPerformed
-
-    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
-        // TODO add your handling code here:
-        System.exit(WIDTH);
-    }//GEN-LAST:event_exitMouseClicked
-
-    private void btnBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBillMouseClicked
-        // TODO add your handling code here:
-        GUIBill bill = new GUIBill();
-        bill.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnBillMouseClicked
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,21 +112,8 @@ public class GUIEmployers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Text1;
-    private javax.swing.JLabel Text2;
-    private javax.swing.JLabel Text3;
-    private javax.swing.JLabel Text4;
-    private javax.swing.JLabel Text5;
-    private javax.swing.JLabel Text6;
-    private javax.swing.JButton addCars;
-    private javax.swing.JButton addClients;
-    private javax.swing.JButton btnBill;
-    private javax.swing.JButton btnViewCars;
-    private javax.swing.JButton btnviewClients;
-    private javax.swing.JButton exit;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JButton products;
     // End of variables declaration//GEN-END:variables
 }

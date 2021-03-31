@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ELEN
+ * @author sigma programers
  */
 public class ValueClient {
    
@@ -27,7 +27,7 @@ public class ValueClient {
         
         persistence = new FileManager();
         
-        if (persistence.save(customer.toString(),"Data.txt" )){
+        if (persistence.create(customer.toString(),"Data.txt" )){
            JOptionPane.showMessageDialog(null, customer + "was saved");
         }  
        return created;

@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.view;
 
 /**
  *
- * @author Sigma Programmers
+ * @author sigma programers
  */
 public class GUIViewCustomer extends javax.swing.JFrame {
 

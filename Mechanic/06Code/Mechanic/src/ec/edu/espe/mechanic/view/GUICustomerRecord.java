@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Sigma Programmers
+ * @author sigma programers
  */
 public class GUICustomerRecord extends javax.swing.JFrame {
 

@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.utils;
 
 /**
  *
- * @author Group 2
+ * @author sigma programers
  */
 public interface DBManager extends Persistence {
    
