@@ -69,6 +69,7 @@ public class GUICustomerRecord extends javax.swing.JFrame {
         txtNewData = new javax.swing.JTextField();
         btnViewCars = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnReturn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -257,6 +258,13 @@ public class GUICustomerRecord extends javax.swing.JFrame {
             }
         });
 
+        btnReturn.setText("Return");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -275,6 +283,8 @@ public class GUICustomerRecord extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addComponent(btnViewCars)
+                .addGap(75, 75, 75)
+                .addComponent(btnReturn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(54, 54, 54))
@@ -291,7 +301,8 @@ public class GUICustomerRecord extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnViewCars)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(btnReturn))
                 .addGap(28, 28, 28))
         );
 
@@ -341,6 +352,14 @@ System.exit(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+
+FrmEmployers frmEmployers= new FrmEmployers();
+frmEmployers.setVisible(true);
+dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnReturnActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -382,6 +401,7 @@ System.exit(0);
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDeleteAll;
     private javax.swing.JButton btnModify;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnViewCars;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
