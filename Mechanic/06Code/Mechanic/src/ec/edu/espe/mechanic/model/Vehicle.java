@@ -13,7 +13,7 @@ public class Vehicle {
     private int year;
     private String Registration;
     private String Plate;
-    private String trademakak;
+    private String trademark;
     private String model;
     private float mileage;
 
@@ -21,14 +21,14 @@ public class Vehicle {
         this.year = year;
         this.Registration = Registration;
         this.Plate = Plate;
-        this.trademakak = trademakak;
+        this.trademark = trademark;
         this.model = model;
         this.mileage = mileage;
     }
 
     @Override
     public String toString() {
-        return "Vehicles{" + "year=" + year + ", Registration=" + Registration + ", Plate=" + Plate + ", trademakak=" + trademakak + ", model=" + model + ", mileage=" + mileage + '}';
+        return "Vehicles{" + "year=" + year + ", Registration=" + Registration + ", Plate=" + Plate + ", trademakak=" + trademark + ", model=" + model + ", mileage=" + mileage + '}';
     }
 
     /**
@@ -74,17 +74,17 @@ public class Vehicle {
     }
 
     /**
-     * @return the trademakak
+     * @return the trademark
      */
-    public String getTrademakak() {
-        return trademakak;
+    public String getTrademark() {
+        return trademark;
     }
 
     /**
-     * @param trademakak the trademakak to set
+     * @param trademark the trademark to set
      */
-    public void setTrademakak(String trademakak) {
-        this.trademakak = trademakak;
+    public void setTrademark(String trademark) {
+        this.trademark = trademark;
     }
 
     /**

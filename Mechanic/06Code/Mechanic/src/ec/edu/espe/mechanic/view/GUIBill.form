@@ -118,16 +118,16 @@
                                       <Component id="repair" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="name" max="32767" attributes="0"/>
+                                              <Component id="txtName" max="32767" attributes="0"/>
                                               <Component id="jTextField1" alignment="0" pref="123" max="32767" attributes="0"/>
-                                              <Component id="lastname" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtLastName" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="vehicle" min="-2" pref="106" max="-2" attributes="0"/>
+                                                  <Component id="txtVehicle" min="-2" pref="106" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -170,12 +170,12 @@
                               <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="vehicle" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtVehicle" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lastname" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtLastName" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -188,7 +188,7 @@
                               <Component id="washer" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="name" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtName" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -253,7 +253,7 @@
             <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="lastname">
+        <Component class="javax.swing.JTextField" name="txtLastName">
         </Component>
         <Component class="javax.swing.JCheckBox" name="repair">
           <Events>
@@ -267,16 +267,16 @@
             <Property name="text" type="java.lang.String" value="Vehicle"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="vehicle">
+        <Component class="javax.swing.JTextField" name="txtVehicle">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="text" type="java.lang.String" value="Other"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="name">
+        <Component class="javax.swing.JTextField" name="txtName">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">

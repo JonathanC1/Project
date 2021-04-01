@@ -41,13 +41,13 @@ public class GUIBill extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        lastname = new javax.swing.JTextField();
+        txtLastName = new javax.swing.JTextField();
         repair = new javax.swing.JCheckBox();
         washer = new javax.swing.JCheckBox();
         jLabel7 = new javax.swing.JLabel();
-        vehicle = new javax.swing.JTextField();
+        txtVehicle = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         finalPrice = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -103,9 +103,9 @@ public class GUIBill extends javax.swing.JFrame {
 
         jLabel8.setText("Other");
 
-        name.addActionListener(new java.awt.event.ActionListener() {
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
 
@@ -134,7 +134,7 @@ public class GUIBill extends javax.swing.JFrame {
         jLabel12.setText("Other");
 
         otherPrice.setToolTipText("");
-        otherPrice.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        otherPrice.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         otherPrice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 otherPriceKeyTyped(evt);
@@ -164,15 +164,15 @@ public class GUIBill extends javax.swing.JFrame {
                                     .addComponent(repair)
                                     .addGroup(totalLayout.createSequentialGroup()
                                         .addGroup(totalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(name)
+                                            .addComponent(txtName)
                                             .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                                            .addComponent(lastname, javax.swing.GroupLayout.Alignment.LEADING))
+                                            .addComponent(txtLastName, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addGroup(totalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(totalLayout.createSequentialGroup()
                                                 .addGap(32, 32, 32)
                                                 .addComponent(jLabel7)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(vehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(txtVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(totalLayout.createSequentialGroup()
                                                 .addGap(6, 6, 6)
                                                 .addComponent(jLabel1))))
@@ -202,11 +202,11 @@ public class GUIBill extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
-                            .addComponent(vehicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(totalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(lastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(totalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -215,7 +215,7 @@ public class GUIBill extends javax.swing.JFrame {
                         .addGroup(totalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
                             .addComponent(washer)))
-                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(totalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(totalLayout.createSequentialGroup()
                         .addGap(52, 52, 52)
@@ -288,9 +288,9 @@ public class GUIBill extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_repairActionPerformed
 
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
     private void discountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountActionPerformed
         // TODO add your handling code here:
@@ -395,13 +395,13 @@ public class GUIBill extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextField lastname;
     private javax.swing.JButton menu;
-    private javax.swing.JTextField name;
     private javax.swing.JTextField otherPrice;
     private javax.swing.JCheckBox repair;
     private javax.swing.JPanel total;
-    private javax.swing.JTextField vehicle;
+    private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtVehicle;
     private javax.swing.JCheckBox washer;
     // End of variables declaration//GEN-END:variables
 }
