@@ -48,7 +48,6 @@ public class GUIEmployers extends javax.swing.JFrame {
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/mechanic/images/SignOut_48.png"))); // NOI18N
         btnExit.setContentAreaFilled(false);
         btnExit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnExit.setLabel("");
         btnExit.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/mechanic/images/SignOut_64.png"))); // NOI18N
         btnExit.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/mechanic/images/SignOut_64.png"))); // NOI18N
         btnExit.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
@@ -69,7 +68,6 @@ public class GUIEmployers extends javax.swing.JFrame {
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/mechanic/images/save_48.png"))); // NOI18N
         btnSave.setContentAreaFilled(false);
         btnSave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnSave.setLabel("");
         btnSave.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/mechanic/images/save_64.png"))); // NOI18N
         btnSave.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/mechanic/images/save_64.png"))); // NOI18N
         btnSave.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
@@ -92,11 +90,9 @@ public class GUIEmployers extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(500, Short.MAX_VALUE)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
