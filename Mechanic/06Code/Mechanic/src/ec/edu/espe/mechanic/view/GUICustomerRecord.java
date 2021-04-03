@@ -7,6 +7,7 @@ package ec.edu.espe.mechanic.view;
 
 import ec.edu.espe.mechanic.controller.ValueClient;
 import ec.edu.espe.mechanic.model.Customer;
+import ec.edu.espe.mechanic.model.Person;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -49,6 +50,7 @@ public class GUICustomerRecord extends javax.swing.JFrame {
         btnModify = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTable = new javax.swing.JTable();
+        Save = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
@@ -106,21 +108,30 @@ public class GUICustomerRecord extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblTable);
 
+        Save.setText("Save");
+        Save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(btnDelete)
-                        .addGap(53, 53, 53)
-                        .addComponent(btnDeleteAll)
-                        .addGap(51, 51, 51)
-                        .addComponent(btnModify))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(Save)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDelete)
+                .addGap(44, 44, 44)
+                .addComponent(btnDeleteAll)
+                .addGap(42, 42, 42)
+                .addComponent(btnModify)
+                .addGap(56, 56, 56))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,7 +140,8 @@ public class GUICustomerRecord extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDelete)
                     .addComponent(btnDeleteAll)
-                    .addComponent(btnModify))
+                    .addComponent(btnModify)
+                    .addComponent(Save))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -360,6 +372,28 @@ dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReturnActionPerformed
 
+    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
+    
+      
+        Customer customer;
+        ValueClient valueclient = new ValueClient();
+
+         String name;
+         String lastname;
+         String telephoneNumber;
+         String Email;
+         String ID;
+
+        name = txtName.getText();
+        lastname = txtLastName.getText();
+        Email = txtEmail.getText();
+        telephoneNumber = txtTelephoneNumber.getText();
+        ID =txtID.getText();
+
+         customer = new Customer(name, lastname, Email,telephoneNumber,ID);       
+        valueclient.create(customer);
+    }//GEN-LAST:event_SaveActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -398,6 +432,7 @@ dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Save;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDeleteAll;
     private javax.swing.JButton btnModify;

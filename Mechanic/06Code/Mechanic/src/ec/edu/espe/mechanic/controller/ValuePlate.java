@@ -11,4 +11,6 @@ package ec.edu.espe.mechanic.controller;
  */
 public class ValuePlate {
     
+    
+    
 }
