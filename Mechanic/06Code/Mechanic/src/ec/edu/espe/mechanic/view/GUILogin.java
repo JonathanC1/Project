@@ -22,10 +22,7 @@ public class GUILogin extends javax.swing.JFrame {
     DB db;
     DBCollection users;
     String loginvalidation;
-    
-    
-    
-
+   
     /**
      * Creates new form Login
      */
@@ -37,10 +34,7 @@ public class GUILogin extends javax.swing.JFrame {
         } catch (UnknownHostException ex) {
             Logger.getLogger(GUILogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-
-
-        
+       
         initComponents();
         this.setLocationRelativeTo(null);
     }
