@@ -16,19 +16,18 @@ public class FileManager implements Persistence {
     public boolean create(String data, String fileName) {
       boolean saved = false;
         createFile(fileName); 
-      try{
-          FileWriter myWriter = new FileWriter(fileName+".txt",true);
-          myWriter.write(System.getProperty("line.separator")+ data);
-          myWriter.close();
-          System.out.println("a new record of"+ fileName + " was saved");
-          saved = true;
-      }catch (IOException ex ){
-          ex.printStackTrace();
-          saved = false;
-      }
+        try{
+            FileWriter myWriter = new FileWriter(fileName+".txt",true);
+            myWriter.write(System.getProperty("line.separator")+ data);
+            myWriter.close();
+            System.out.println("a new record of"+ fileName + " was saved");
+            saved = true;
+        }catch (IOException ex ){
+            ex.printStackTrace();
+            saved = false;
+        }
           
-          
-          return saved;
+        return saved;
     }
 
     public boolean createFile(String fileName) {
@@ -39,7 +38,6 @@ public class FileManager implements Persistence {
             if (file.createNewFile()){
                 System.out.println("file was create");
                 created = true;
-                
             }else{
                 System.out.println("file exist");
                 created=true;
@@ -47,7 +45,6 @@ public class FileManager implements Persistence {
         }catch(IOException ex){
             ex.printStackTrace();
             created = false;
-            
         }
         return created;
     }
@@ -68,10 +65,6 @@ public class FileManager implements Persistence {
         }
         return readLine;
     }
-   
-   
-   
-   
    
     @Override
     public String find(String dataToFind, String field, String table) {

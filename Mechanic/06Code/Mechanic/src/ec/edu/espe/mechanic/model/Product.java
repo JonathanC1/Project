@@ -21,7 +21,6 @@ public class Product {
         this.price = price;
     }
 
-    
     /**
      * @return the name
      */

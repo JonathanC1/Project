@@ -16,7 +16,4 @@ public class Administrative extends Person {
         super(name, lastname, telephoneNumber, Email, ID);
     }
     
-  
-        
-   
 }

@@ -16,6 +16,4 @@ public interface Persistence {
     boolean delete( String dataToFind, String table);
     String read (String table);
 
-    
-  
 }

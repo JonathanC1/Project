@@ -11,7 +11,6 @@ public class IvaCalculator {
         float total;
         USTax tax = USTax.getlnstance(value);
         total = tax.salesTotal(tax);
-      
         return total;
     } 
 }
