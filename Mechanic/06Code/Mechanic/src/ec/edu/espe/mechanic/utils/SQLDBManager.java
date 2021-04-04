@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.utils;
 
 /**
  *
- * @author sigma programers
+ * @author Sigma Programmers
  */
 public abstract class SQLDBManager implements DBManager{
    public abstract  boolean testConnection(String connection);

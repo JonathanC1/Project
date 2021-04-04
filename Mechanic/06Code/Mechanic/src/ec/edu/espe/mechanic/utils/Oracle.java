@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.utils;
 
 /**
  *
- * @author sigma programers
+ * @author Sigma Programmers
  */
 public class Oracle extends SQLDBManager {
 

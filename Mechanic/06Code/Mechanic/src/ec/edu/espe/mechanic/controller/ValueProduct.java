@@ -10,16 +10,15 @@ import com.mongodb.DBObject;
 
 /**
  *
- * @author sigma programers
+ * @author Sigma Programmers
  */
 public class ValueProduct {
-     BasicDBObject document = new BasicDBObject();
+    BasicDBObject document = new BasicDBObject();
     
     public DBObject addProduct(String name, int quanty, int price ){
-    
     document.put( "Name",name );
-    document.put( "quanty", quanty);
-    document.put( "price", price);
+    document.put( "Quanty", quanty);
+    document.put( "Price", price);
     return null;
     }
 }

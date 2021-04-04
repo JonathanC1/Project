@@ -5,8 +5,6 @@
  */
 package ec.edu.espe.mechanic.model;
 
-
-
 /**
  *
  * @author Sigma Programmers

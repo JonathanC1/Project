@@ -10,11 +10,9 @@ import ec.edu.espe.mechanic.utils.FileManager;
 import ec.edu.espe.mechanic.utils.Persistence;
 import javax.swing.JOptionPane;
 
-
-
 /**
  *
- * @author sigma programers
+ * @author Sigma Programmers
  */
 public class ValueClient {
    
@@ -24,7 +22,6 @@ public class ValueClient {
         
         Persistence persistence;
 
-        
         persistence = new FileManager();
         
         if (persistence.create(customer.toString(),"Data.txt" )){

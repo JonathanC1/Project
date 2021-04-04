@@ -10,7 +10,7 @@ import com.mongodb.DBObject;
 
 /**
  *
- * @author sigma programers
+ * @author Sigma Programmers
  */
 public class ValueUserLogin {
     BasicDBObject document = new BasicDBObject();

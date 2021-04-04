@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.view;
 
 /**
  *
- * @author Roberth-C
+ * @author Sigma Programmers
  */
 public class FrmProducts extends javax.swing.JFrame {
 

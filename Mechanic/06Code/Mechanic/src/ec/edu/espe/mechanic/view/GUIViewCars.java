@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.view;
 
 /**
  *
- * @author sigma programers
+ * @author Sigma Programmers
  */
 public class GUIViewCars extends javax.swing.JFrame {
 

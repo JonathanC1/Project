@@ -7,7 +7,7 @@ package ec.edu.espe.mechanic.view;
 
 /**
  *
- * @author Roberth-C
+ * @author Sigma Programmers
  */
 public class FrmCar extends javax.swing.JFrame {
 

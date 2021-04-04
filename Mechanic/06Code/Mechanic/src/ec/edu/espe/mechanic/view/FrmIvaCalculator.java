@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Roberth-C
+ * @author Sigma Programmers
  */
 public class FrmIvaCalculator extends javax.swing.JFrame {
 

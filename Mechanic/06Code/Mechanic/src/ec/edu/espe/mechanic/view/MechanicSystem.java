@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author sigma programers
+ * @author Sigma Programmers
  */
 public class MechanicSystem {
 

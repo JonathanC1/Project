@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author sigma programers
+ * @author Sigma Programmers
  */
 public class GUICustomerRecord extends javax.swing.JFrame {
 

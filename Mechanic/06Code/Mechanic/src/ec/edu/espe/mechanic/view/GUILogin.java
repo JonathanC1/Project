@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author sigma programers
+ * @author Sigma Programmers
  */
 public class GUILogin extends javax.swing.JFrame {
     DB db;

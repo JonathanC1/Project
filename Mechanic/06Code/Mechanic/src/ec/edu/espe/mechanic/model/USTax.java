@@ -2,7 +2,7 @@ package ec.edu.espe.mechanic.model;
 
 /**
  *
- * @author Roberth-C
+ * @author Sigma Programmers
  */
 public class USTax {
     

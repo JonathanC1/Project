@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  *
- * @author sigma programers
+ * @author Sigma Programmers
  */
 public class FileManager implements Persistence {
 

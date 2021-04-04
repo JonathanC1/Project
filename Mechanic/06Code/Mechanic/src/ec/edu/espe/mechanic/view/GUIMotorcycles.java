@@ -2,7 +2,7 @@ package ec.edu.espe.mechanic.view;
 
 /**
  *
- * @author sigma programers
+ * @author Sigma Programmers
  */
 public class GUIMotorcycles extends javax.swing.JFrame {
 

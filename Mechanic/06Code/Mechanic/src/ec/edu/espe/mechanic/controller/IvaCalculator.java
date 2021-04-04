@@ -4,7 +4,7 @@ import ec.edu.espe.mechanic.model.USTax;
 
 /**
  *
- * @author Roberth-C
+ * @author Sigma Programmers
  */
 public class IvaCalculator {
    public static float calculate(float value){
@@ -13,6 +13,5 @@ public class IvaCalculator {
         total = tax.salesTotal(tax);
       
         return total;
-        
     } 
 }
