@@ -26,6 +26,7 @@ public class FrmRegister extends javax.swing.JFrame {
      */
     public FrmRegister() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -176,7 +177,7 @@ public class FrmRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-    GUILogin login = new GUILogin();
+    FrmLogin login = new FrmLogin();
     this.setVisible(false);
     login.setVisible(true);
     dispose();

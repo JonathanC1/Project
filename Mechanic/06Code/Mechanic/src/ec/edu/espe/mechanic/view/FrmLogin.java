@@ -22,7 +22,7 @@ import org.json.simple.parser.JSONParser;
  *
  * @author Sigma Programmers
  */
-public class GUILogin extends javax.swing.JFrame {
+public class FrmLogin extends javax.swing.JFrame {
     DB db;
     DBCollection users;
     String loginvalidation;
@@ -30,13 +30,13 @@ public class GUILogin extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    public GUILogin() {
+    public FrmLogin() {
         try {
             Mongo mongo = new Mongo("localhost",27017);
             db=mongo.getDB("mechanicdatabase");
             users=db.getCollection("users");
         } catch (UnknownHostException ex) {
-            Logger.getLogger(GUILogin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
        
         initComponents();
@@ -210,6 +210,7 @@ System.exit(0);
 FrmRegister frmregister = new FrmRegister();
 this.setVisible(false);
 frmregister.setVisible(true);
+dispose();
     }//GEN-LAST:event_btnregisterActionPerformed
 
     /**
@@ -229,14 +230,18 @@ frmregister.setVisible(true);
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUILogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUILogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUILogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUILogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -245,7 +250,7 @@ frmregister.setVisible(true);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUILogin().setVisible(true);
+                new FrmLogin().setVisible(true);
             }
         });
     }

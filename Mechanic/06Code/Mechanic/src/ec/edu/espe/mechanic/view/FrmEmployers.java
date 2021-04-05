@@ -29,6 +29,7 @@ public class FrmEmployers extends javax.swing.JFrame {
         btnAddCustomer = new javax.swing.JButton();
         btnInvoice = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        btnAddEmployee = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -82,29 +83,39 @@ public class FrmEmployers extends javax.swing.JFrame {
             }
         });
 
+        btnAddEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/mechanic/images/employee_96.png"))); // NOI18N
+        btnAddEmployee.setContentAreaFilled(false);
+        btnAddEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddEmployeeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(btnAddCars)
-                .addGap(102, 102, 102)
-                .addComponent(btnAddMotorcicles)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(43, 43, 43)
+                .addComponent(btnAddCustomer)
+                .addGap(88, 88, 88)
+                .addComponent(btnAddEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnInvoice)
+                .addGap(39, 39, 39))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(btnAddCars)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addComponent(btnAddMotorcicles)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(60, 60, 60)
                         .addComponent(btnExit))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(btnAddCustomer)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                        .addComponent(btnAddProducts)
-                        .addGap(73, 73, 73)
-                        .addComponent(btnInvoice)))
-                .addGap(39, 39, 39))
+                        .addGap(30, 30, 30)
+                        .addComponent(btnAddProducts)))
+                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,17 +126,22 @@ public class FrmEmployers extends javax.swing.JFrame {
                         .addComponent(btnAddCustomer)
                         .addGap(53, 53, 53))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(42, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnInvoice)
-                            .addComponent(btnAddProducts))
+                        .addContainerGap(38, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAddEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInvoice))
                         .addGap(44, 44, 44)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAddMotorcicles)
-                    .addComponent(btnAddCars))
-                .addGap(41, 41, 41)
-                .addComponent(btnExit)
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAddProducts)
+                        .addGap(45, 45, 45)
+                        .addComponent(btnExit)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAddMotorcicles)
+                            .addComponent(btnAddCars))
+                        .addGap(70, 70, 70))))
         );
 
         pack();
@@ -179,6 +195,15 @@ dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddProductsActionPerformed
 
+    private void btnAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmployeeActionPerformed
+
+        FrmWorkerRecord workerRecord = new FrmWorkerRecord();
+        this.setVisible(false);
+        workerRecord.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_btnAddEmployeeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -217,6 +242,7 @@ dispose();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCars;
     private javax.swing.JButton btnAddCustomer;
+    private javax.swing.JButton btnAddEmployee;
     private javax.swing.JButton btnAddMotorcicles;
     private javax.swing.JButton btnAddProducts;
     private javax.swing.JButton btnExit;
