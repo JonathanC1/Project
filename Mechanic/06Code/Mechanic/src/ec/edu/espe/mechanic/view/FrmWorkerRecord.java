@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ec.edu.espe.mechanic.view;
 
 import javax.swing.JOptionPane;
@@ -10,7 +5,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Roberth-C
+ * @author Sigma Programmers
  */
 public class FrmWorkerRecord extends javax.swing.JFrame {
     DefaultTableModel modelo;
@@ -62,6 +57,7 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtCode = new javax.swing.JTextField();
+        btnReturn = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -134,14 +130,17 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
 
         jLabel10.setText("Code");
 
+        btnReturn.setText("Return");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(207, 207, 207)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -186,6 +185,15 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
                                 .addComponent(btnDeleteAll)))
                         .addGap(0, 5, Short.MAX_VALUE)))
                 .addGap(34, 34, 34))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(btnReturn)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,7 +242,9 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
                     .addComponent(btnModify))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnReturn)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -297,6 +307,14 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnModifyActionPerformed
 
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+
+        FrmEmployers employers= new FrmEmployers();
+        this.setVisible(false);
+        employers.setVisible(true);
+        
+    }//GEN-LAST:event_btnReturnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -340,6 +358,7 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteAll;
     private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnModify;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

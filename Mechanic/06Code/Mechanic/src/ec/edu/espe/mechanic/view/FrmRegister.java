@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ec.edu.espe.mechanic.view;
 
 import java.io.FileNotFoundException;
@@ -26,6 +21,7 @@ public class FrmRegister extends javax.swing.JFrame {
      */
     public FrmRegister() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -176,7 +172,7 @@ public class FrmRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-    GUILogin login = new GUILogin();
+    FrmLogin login = new FrmLogin();
     this.setVisible(false);
     login.setVisible(true);
     dispose();
