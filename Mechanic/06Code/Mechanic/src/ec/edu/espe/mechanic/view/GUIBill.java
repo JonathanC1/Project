@@ -92,8 +92,6 @@ public class GUIBill extends javax.swing.JFrame {
 
         jLabel6.setText("Washer");
 
-        jTextField1.setText("jTextField1");
-
         repair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 repairActionPerformed(evt);

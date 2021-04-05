@@ -150,7 +150,7 @@ dispose();
 
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
 
-GUICustomerRecord customerRecord=new GUICustomerRecord();
+FrmCustomerRecord customerRecord=new FrmCustomerRecord();
 customerRecord.setVisible(true);
 dispose();
         // TODO add your handling code here:

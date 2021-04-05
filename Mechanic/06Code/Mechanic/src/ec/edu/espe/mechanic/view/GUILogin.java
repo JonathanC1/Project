@@ -5,7 +5,6 @@
  */
 package ec.edu.espe.mechanic.view;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
@@ -61,9 +60,8 @@ public class GUILogin extends javax.swing.JFrame {
         pswuser = new javax.swing.JPasswordField();
         btnlogin = new javax.swing.JButton();
         btnregister = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -97,23 +95,16 @@ public class GUILogin extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Log Out");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/mechanic/images/Sigma_64.png"))); // NOI18N
         jButton3.setText("    Sigma Mechanics");
         jButton3.setContentAreaFilled(false);
-
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,17 +130,14 @@ public class GUILogin extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(txtuser))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(btnlogin))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnregister)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                                                .addComponent(btnDelete)))
-                                        .addGap(38, 38, 38)
-                                        .addComponent(jButton1)))))
+                                        .addComponent(btnregister)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                                        .addComponent(btnExit)))))
                         .addGap(33, 33, 33))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addComponent(btnlogin)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,8 +157,7 @@ public class GUILogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnregister)
-                    .addComponent(jButton1)
-                    .addComponent(btnDelete)))
+                    .addComponent(btnExit)))
         );
 
         pack();
@@ -210,77 +197,20 @@ public class GUILogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnloginActionPerformed
 
-    private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
-            
-        
-        JSONObject obj = new JSONObject();
-            JSONArray jrr = new JSONArray();
-            JSONParser jp = new JSONParser();
-            try{
-                FileReader file = new FileReader("UserData.json");
-                jrr=(JSONArray)jp.parse(file);
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null,"Error occured");
-            }
-
-            obj.put("Username", txtuser.getText());
-            obj.put("Password",pswuser.getText());
-            jrr.add(obj);
-            try{
-                FileWriter file = new FileWriter("UserData.json");
-                file.write(jrr.toJSONString());
-                file.close();
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null,"Error occured");
-            }
-            JOptionPane.showMessageDialog(null,"Data Saved");
-    }//GEN-LAST:event_btnregisterActionPerformed
-
     private void pswuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswuserActionPerformed
         
     }//GEN-LAST:event_pswuserActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
 System.exit(0);
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnExitActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-JSONArray jrr = new JSONArray();
-        Object ob = null;
-        JSONParser Jp = new JSONParser();
-        //fetch file--
-        try{
-            FileReader file = new FileReader("UserData.json");
-            ob=Jp.parse(file);
-            jrr=(JSONArray) ob;
-            file.close();
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"Error Occured While fetching");
-        }
-        
-        JSONObject obj = new JSONObject();
-        int size = jrr.size();
-        obj.put("Username", txtuser.getText());
-        obj.put("Password",pswuser.getText());
-        
-        for(int i=0;i<size;i++){
-            if(obj.equals(jrr.get(i))){
-                try{
-                    FileWriter file = new FileWriter("UserData.json");
-                    jrr.remove(i);
-                    file.write(jrr.toJSONString());
-                    file.close();
-                }catch(Exception ex){
-                    JOptionPane.showMessageDialog(null,"Error occured");
-                }
-                JOptionPane.showMessageDialog(null,"Data Removed");
-                break;
-            }else if(i==size-1){
-                JOptionPane.showMessageDialog(null,"Incorrect User/Password!");
-            }
-        }
-    }//GEN-LAST:event_btnDeleteActionPerformed
+    private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
+FrmRegister frmregister = new FrmRegister();
+this.setVisible(false);
+frmregister.setVisible(true);
+    }//GEN-LAST:event_btnregisterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,10 +251,9 @@ JSONArray jrr = new JSONArray();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnlogin;
     private javax.swing.JButton btnregister;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
