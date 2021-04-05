@@ -9,10 +9,15 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 /**
  *
@@ -49,6 +54,7 @@ public class GUILogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtuser = new javax.swing.JTextField();
@@ -58,8 +64,11 @@ public class GUILogin extends javax.swing.JFrame {
         person = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -102,6 +111,13 @@ public class GUILogin extends javax.swing.JFrame {
         jButton3.setText("    Sigma Mechanics");
         jButton3.setContentAreaFilled(false);
 
+        jButton4.setText("jButton4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,9 +148,11 @@ public class GUILogin extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnregister)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1))
+                                .addComponent(jButton1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton4))
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 21, Short.MAX_VALUE))))
+                        .addGap(0, 107, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,70 +173,117 @@ public class GUILogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnregister)
                     .addComponent(btnlogin)
-                    .addComponent(jButton1)))
+                    .addComponent(jButton1)
+                    .addComponent(jButton4)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-        String user = txtuser.getText();
-        String password = pswuser.getText();
-        String Person = (String) person.getSelectedItem();
         
-        if (user.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "FILL ALL THE FIELDS PLEASE");
-        } else {
-            if (user.equals("Pepe") && password.equals("12345") && Person.equals("Customer")) {
-                JOptionPane.showMessageDialog(null, "Welcome " + user);
-                FrmEmployers  guiemployers  = new FrmEmployers ();
-                guiemployers.setVisible(true);
-                this.dispose();
-            } else if (user.equals("Worker") && password.equals("123work") && Person.equals("Empleado")) {
-                JOptionPane.showMessageDialog(null, "Welcome " + user);
-                FrmEmployers  guiemployers  = new FrmEmployers ();
-                guiemployers.setVisible(true);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "User or Password inorrect");
+        JSONArray jrr = new JSONArray();
+        Object ob = null;
+        JSONParser Jp = new JSONParser();
+        //fetch file--
+        try{
+            FileReader file = new FileReader("UserData.json");
+            ob=Jp.parse(file);
+            jrr=(JSONArray) ob;
+            file.close();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Error Occured While fetching");
+        }
+        
+        JSONObject obj = new JSONObject();
+        int size = jrr.size();
+        obj.put("Username", txtuser.getText());
+        obj.put("Password",pswuser.getText());
+        
+        for(int i=0;i<size;i++){
+            if(obj.equals(jrr.get(i))){
+                JOptionPane.showMessageDialog(null,"Password matched");
+                FrmEmployers frmEmployers=new FrmEmployers();
+                frmEmployers.setVisible(true);
+                
+                break;
+            }else if(i==size-1){
+                JOptionPane.showMessageDialog(null,"Incorrect User/Password!");
             }
-             this.setVisible(false);
-            
-        }      // TODO add your handling code here:
+        }
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
- System.out.println("User");
-        String dataToSave = "This User " + 
-                "im going to create " + txtuser.getText();
-        int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Mechanics Saving", JOptionPane.YES_NO_CANCEL_OPTION);
-        if(selection == 0){
-            JOptionPane.showMessageDialog(null, "account created", txtuser.getText(), JOptionPane.INFORMATION_MESSAGE);
-            BasicDBObject document=new BasicDBObject();
-            document.put("user", ""+txtuser.getText()+"");
-            document.put("password", ""+pswuser.getText()+"");
-            users.insert(document);
             
-            
-            //FrmMechanics frmmechanics = new FrmMechanics();
-            //this.setVisible(false);  
-        } else if (selection == 1){
-            JOptionPane.showMessageDialog(null, "account was not saved", txtuser + "Not saved", JOptionPane.ERROR_MESSAGE);
-            
-        } else{
-            JOptionPane.showMessageDialog(null, "Action cancelled", txtuser + "Cancelled", JOptionPane.WARNING_MESSAGE);
-            
-        }   // TODO add your handling code here:
+        
+        JSONObject obj = new JSONObject();
+            JSONArray jrr = new JSONArray();
+            JSONParser jp = new JSONParser();
+            try{
+                FileReader file = new FileReader("UserData.json");
+                jrr=(JSONArray)jp.parse(file);
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null,"Error occured");
+            }
+
+            obj.put("Username", txtuser.getText());
+            obj.put("Password",pswuser.getText());
+            jrr.add(obj);
+            try{
+                FileWriter file = new FileWriter("UserData.json");
+                file.write(jrr.toJSONString());
+                file.close();
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null,"Error occured");
+            }
+            JOptionPane.showMessageDialog(null,"Data Saved");
     }//GEN-LAST:event_btnregisterActionPerformed
 
     private void pswuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswuserActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_pswuserActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 System.exit(0);
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+JSONArray jrr = new JSONArray();
+        Object ob = null;
+        JSONParser Jp = new JSONParser();
+        //fetch file--
+        try{
+            FileReader file = new FileReader("UserData.json");
+            ob=Jp.parse(file);
+            jrr=(JSONArray) ob;
+            file.close();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Error Occured While fetching");
+        }
+        
+        JSONObject obj = new JSONObject();
+        int size = jrr.size();
+        obj.put("Username", txtuser.getText());
+        obj.put("Password",pswuser.getText());
+        
+        for(int i=0;i<size;i++){
+            if(obj.equals(jrr.get(i))){
+                try{
+                    FileWriter file = new FileWriter("UserData.json");
+                    jrr.remove(i);
+                    file.write(jrr.toJSONString());
+                    file.close();
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null,"Error occured");
+                }
+                JOptionPane.showMessageDialog(null,"Data Removed");
+                break;
+            }else if(i==size-1){
+                JOptionPane.showMessageDialog(null,"Incorrect User/Password!");
+            }
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,7 +327,9 @@ System.exit(0);
     private javax.swing.JButton btnlogin;
     private javax.swing.JButton btnregister;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
