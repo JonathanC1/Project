@@ -1,5 +1,11 @@
 package ec.edu.espe.mechanic.view;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
+import static ec.edu.espe.mechanic.controller.CustomerController.createWorker;
+import static ec.edu.espe.mechanic.utils.Connection.createConnection;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -9,6 +15,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmWorkerRecord extends javax.swing.JFrame {
     DefaultTableModel modelo;
+    DB db;
+    DBCollection collection;
+    BasicDBObject document = new BasicDBObject();
+    MongoClient mongo = createConnection();
     /**
      * Creates new form Worker
      */
@@ -256,7 +266,50 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
   
-        String []info=new String[4];
+      
+        
+        if (txtName.getText().isEmpty() || txtLastName.getText().isEmpty() || 
+            txtPhone.getText().isEmpty() ||  txtCode.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "FILL ALL THE FIELDS");
+        } else {
+            String dataToSave = "Do you want to save this information?\n"+
+                    "\nName: " + txtName.getText()+
+                    "\nLastName: " + txtLastName.getText() + 
+                    "\nPhone: " + txtPhone.getText() + 
+                    "\nCode: " + txtCode.getText();
+                    
+                    int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Person Saving",
+                    JOptionPane.YES_NO_CANCEL_OPTION);
+                    
+                   switch (selection) {
+                case 0:
+                JOptionPane.showMessageDialog(null, "Information was saved", txtName.getText() + 
+                "Saved", JOptionPane.INFORMATION_MESSAGE);
+                    
+ 
+                        createWorker(mongo, 
+                               "Person",
+                               "Worker",
+                               txtName.getText(),
+                               txtLastName.getText(), 
+                               txtPhone.getText(),
+                               txtCode.getText());
+                
+                     break;
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Information was NOT saved", txtName.getText() + "NOT saved",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    emptyFields();
+                    break;
+                    default:
+                    JOptionPane.showMessageDialog(null, "Action was cancelled", txtName.getText() + "Cancelled",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    break;
+            }
+        }  
+        
+        
+          String []info=new String[4];
         info[0]=txtName.getText();
         info[1]=txtLastName.getText();
         info[2]=txtPhone.getText();
@@ -267,10 +320,16 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
         txtLastName.setText("");
         txtPhone.setText("");
         txtCode.setText("");
-        
-        
     }//GEN-LAST:event_btnInsertActionPerformed
 
+    
+       public void emptyFields() {
+        txtName.setText("");
+        txtLastName.setText("");
+        txtPhone.setText("");
+        txtCode.setText("");
+    }  
+    
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
 
       int fila = table.getSelectedRow();
@@ -381,4 +440,6 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtRow;
     // End of variables declaration//GEN-END:variables
+
+    
 }

@@ -93,6 +93,26 @@ DB db = mongo.getDB(dataBase);
         
         
     } 
+   
+   
+   public static void createWorker(MongoClient mongo,String dataBase, String collection,String name, String lastName, String phone,String Code)    
+          
+    {
+DB db = mongo.getDB(dataBase);
+        DBCollection dbCollection = db.getCollection(collection);
+        BasicDBObject document = new BasicDBObject();
+
+        document.put("Name", name);
+        document.put("LastName", lastName);
+        document.put("Phone", phone);
+        document.put("Code ",Code);
+        
+        
+        dbCollection.insert(document);
+        
+        
+        
+    }
   
 }
          
