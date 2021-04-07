@@ -148,49 +148,48 @@ public class FrmEmployers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddCarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCarsActionPerformed
-FrmCar frmcar=new FrmCar();
-frmcar.setVisible(true);
-dispose();
-
+        FrmCar frmcar = new FrmCar();
+        frmcar.setVisible(true);
+        dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddCarsActionPerformed
 
     private void btnAddMotorciclesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMotorciclesActionPerformed
 
-GUIMotorcycles motorcycle=new GUIMotorcycles();
-motorcycle.setVisible(true);
-dispose();
+        GUIMotorcycles motorcycle = new GUIMotorcycles();
+        motorcycle.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddMotorciclesActionPerformed
 
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
 
-FrmCustomerRecord customerRecord=new FrmCustomerRecord();
-customerRecord.setVisible(true);
-dispose();
+        FrmCustomerRecord customerRecord = new FrmCustomerRecord();
+        customerRecord.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddCustomerActionPerformed
 
     private void btnInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvoiceActionPerformed
 
-GUIBill bill=new GUIBill();
-bill.setVisible(true);
-dispose();
+        GUIBill bill = new GUIBill();
+        bill.setVisible(true);
+        dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInvoiceActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-System.exit(0);
+        System.exit(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnAddProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductsActionPerformed
 
-FrmProducts frmproducts= new FrmProducts();
-frmproducts.setVisible(true);
-dispose();
+        FrmProducts frmproducts = new FrmProducts();
+        frmproducts.setVisible(true);
+        dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddProductsActionPerformed
@@ -201,7 +200,7 @@ dispose();
         this.setVisible(false);
         workerRecord.setVisible(true);
         dispose();
-        
+
     }//GEN-LAST:event_btnAddEmployeeActionPerformed
 
     /**

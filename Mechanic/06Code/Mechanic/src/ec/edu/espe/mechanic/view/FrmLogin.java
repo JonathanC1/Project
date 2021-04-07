@@ -2,29 +2,27 @@ package ec.edu.espe.mechanic.view;
 
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
-import com.mongodb.Mongo;
 import java.io.FileReader;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
 /**
  *
  * @author Sigma Programmers
  */
 public class FrmLogin extends javax.swing.JFrame {
+
     DB db;
     DBCollection users;
     String loginvalidation;
-   
+
     /**
      * Creates new form Login
      */
     public FrmLogin() {
-        
-       
+
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -150,53 +148,53 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-        
+
         JSONArray jrr = new JSONArray();
         Object ob = null;
         JSONParser Jp = new JSONParser();
         //fetch file--
-        try{
+        try {
             FileReader file = new FileReader("UserData.json");
-            ob=Jp.parse(file);
-            jrr=(JSONArray) ob;
+            ob = Jp.parse(file);
+            jrr = (JSONArray) ob;
             file.close();
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"Error Occured While fetching");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error Occured While fetching");
         }
-        
+
         JSONObject obj = new JSONObject();
         int size = jrr.size();
         obj.put("Username", txtuser.getText());
-        obj.put("Password",pswuser.getText());
-        
-        for(int i=0;i<size;i++){
-            if(obj.equals(jrr.get(i))){
-                JOptionPane.showMessageDialog(null,"Password Correct");
-                FrmEmployers frmEmployers=new FrmEmployers();
+        obj.put("Password", pswuser.getText());
+
+        for (int i = 0; i < size; i++) {
+            if (obj.equals(jrr.get(i))) {
+                JOptionPane.showMessageDialog(null, "Password Correct");
+                FrmEmployers frmEmployers = new FrmEmployers();
                 frmEmployers.setVisible(true);
                 dispose();
-                
+
                 break;
-            }else if(i==size-1){
-                JOptionPane.showMessageDialog(null,"Incorrect User/Password!");
+            } else if (i == size - 1) {
+                JOptionPane.showMessageDialog(null, "Incorrect User/Password!");
             }
         }
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void pswuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswuserActionPerformed
-        
+
     }//GEN-LAST:event_pswuserActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-System.exit(0);
+        System.exit(0);
 
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
-FrmRegister frmregister = new FrmRegister();
-this.setVisible(false);
-frmregister.setVisible(true);
-dispose();
+        FrmRegister frmregister = new FrmRegister();
+        this.setVisible(false);
+        frmregister.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnregisterActionPerformed
 
     /**

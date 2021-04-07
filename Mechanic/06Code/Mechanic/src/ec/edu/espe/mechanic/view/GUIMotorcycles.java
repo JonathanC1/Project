@@ -14,8 +14,9 @@ import javax.swing.table.DefaultTableModel;
  * @author Sigma Programmers
  */
 public class GUIMotorcycles extends javax.swing.JFrame {
+
     DefaultTableModel model;
-   
+
     DB db;
     DBCollection collection;
     BasicDBObject document = new BasicDBObject();
@@ -210,73 +211,66 @@ public class GUIMotorcycles extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMileageActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-System.exit(0);
+        System.exit(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
- 
-FrmEmployers frmEmployers= new FrmEmployers();
-frmEmployers.setVisible(true);
-dispose();
+
+        FrmEmployers frmEmployers = new FrmEmployers();
+        frmEmployers.setVisible(true);
+        dispose();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-   if (txtYear.getText().isEmpty() || txtRegistration.getText().isEmpty() || 
-            txtPlate.getText().isEmpty() || txtTrademark.getText().isEmpty()|| txtModel.getText().isEmpty()|| txtMileage.getText().isEmpty()) {
+        if (txtYear.getText().isEmpty() || txtRegistration.getText().isEmpty()
+                || txtPlate.getText().isEmpty() || txtTrademark.getText().isEmpty() || txtModel.getText().isEmpty() || txtMileage.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "FILL ALL THE FIELDS");
         } else {
-            String dataToSave = "Do you want to save this information?\n"+
-                    "\nYear: " + txtYear.getText()+
-                    "\nRegistration: " + txtRegistration.getText() + 
-                    "\nPlate: " + txtPlate.getText() + 
-                    "\nTrademark: " + txtTrademark.getText()+ 
-                    "\nModel: " + txtModel.getText()+
-                    "\nMileage: " + txtMileage.getText();
-                    
+            String dataToSave = "Do you want to save this information?\n"
+                    + "\nYear: " + txtYear.getText()
+                    + "\nRegistration: " + txtRegistration.getText()
+                    + "\nPlate: " + txtPlate.getText()
+                    + "\nTrademark: " + txtTrademark.getText()
+                    + "\nModel: " + txtModel.getText()
+                    + "\nMileage: " + txtMileage.getText();
 
             int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Vehicle Saving",
                     JOptionPane.YES_NO_CANCEL_OPTION);
 
             switch (selection) {
                 case 0:
-                JOptionPane.showMessageDialog(null, "Information was saved", txtYear.getText() + 
-                "Saved", JOptionPane.INFORMATION_MESSAGE);
-                    
- 
-                        createMotorcycle(mongo, 
-                               "Vehicles",
-                               "Motorcycles",
-                               txtYear.getText(),
-                               txtRegistration.getText(), 
-                               txtPlate.getText(),
-                               txtTrademark.getText(),
-                               txtModel.getText() ,
-                               txtMileage.getText());
-                               
-                               
-                        
+                    JOptionPane.showMessageDialog(null, "Information was saved", txtYear.getText()
+                            + "Saved", JOptionPane.INFORMATION_MESSAGE);
+
+                    createMotorcycle(mongo,
+                            "Vehicles",
+                            "Motorcycles",
+                            txtYear.getText(),
+                            txtRegistration.getText(),
+                            txtPlate.getText(),
+                            txtTrademark.getText(),
+                            txtModel.getText(),
+                            txtMileage.getText());
+
                     break;
                 case 1:
                     JOptionPane.showMessageDialog(null, "Information was NOT saved", txtYear.getText() + "NOT saved",
-                    JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.INFORMATION_MESSAGE);
                     emptyFields();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Action was cancelled", txtYear.getText() + "Cancelled",
-                    JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
             }
-    }
+        }
 
 
-
-
-      
     }//GEN-LAST:event_btnSaveActionPerformed
-public void emptyFields() {
+    public void emptyFields() {
         txtYear.setText("");
         txtRegistration.setText("");
         txtPlate.setText("");
@@ -284,8 +278,7 @@ public void emptyFields() {
         txtModel.setText("");
         txtMileage.setText("");
     }
-    
-     
+
     /**
      * @param args the command line arguments
      */

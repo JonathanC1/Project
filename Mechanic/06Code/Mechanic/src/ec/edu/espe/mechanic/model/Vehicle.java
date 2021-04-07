@@ -5,6 +5,7 @@ package ec.edu.espe.mechanic.model;
  * @author Sigma Programmers
  */
 public class Vehicle {
+
     private int year;
     private String Registration;
     private String Plate;
@@ -109,6 +110,5 @@ public class Vehicle {
     public void setMileage(float mileage) {
         this.mileage = mileage;
     }
-    
-    
+
 }

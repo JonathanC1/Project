@@ -16,18 +16,19 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
 /**
  *
  * @author Roberth-C
  */
 public class FrmRegister extends javax.swing.JFrame {
-DefaultTableModel model;
-   
+
+    DefaultTableModel model;
+
     DB db;
     DBCollection collection;
     BasicDBObject document = new BasicDBObject();
     MongoClient mongo = createConnection();
+
     /**
      * Creates new form FrmRegister
      */
@@ -151,46 +152,45 @@ DefaultTableModel model;
         Object ob = null;
         JSONParser Jp = new JSONParser();
         //fetch file--
-        try{
+        try {
             FileReader file = new FileReader("UserData.json");
-            ob=Jp.parse(file);
-            jrr=(JSONArray) ob;
+            ob = Jp.parse(file);
+            jrr = (JSONArray) ob;
             file.close();
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"Error Occured While fetching");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error Occured While fetching");
         }
 
         JSONObject obj = new JSONObject();
         int size = jrr.size();
         obj.put("Username", txtuser.getText());
-        obj.put("Password",txtPassword.getText());
+        obj.put("Password", txtPassword.getText());
 
-        for(int i=0;i<size;i++){
-            if(obj.equals(jrr.get(i))){
-                try{
+        for (int i = 0; i < size; i++) {
+            if (obj.equals(jrr.get(i))) {
+                try {
                     FileWriter file = new FileWriter("UserData.json");
                     jrr.remove(i);
                     file.write(jrr.toJSONString());
                     file.close();
-                }catch(Exception ex){
-                    JOptionPane.showMessageDialog(null,"Error occured");
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error occured");
                 }
-                JOptionPane.showMessageDialog(null,"Data Removed");
+                JOptionPane.showMessageDialog(null, "Data Removed");
                 break;
-            }else if(i==size-1){
-                JOptionPane.showMessageDialog(null,"Incorrect User/Password!");
+            } else if (i == size - 1) {
+                JOptionPane.showMessageDialog(null, "Incorrect User/Password!");
             }
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-    FrmLogin login = new FrmLogin();
-    this.setVisible(false);
-    login.setVisible(true);
-    dispose();
-        
-        
-        
+        FrmLogin login = new FrmLogin();
+        this.setVisible(false);
+        login.setVisible(true);
+        dispose();
+
+
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
@@ -198,78 +198,70 @@ DefaultTableModel model;
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-     
-            JSONObject jsonObject = new JSONObject();
-            JSONArray array = new JSONArray();
-            JSONParser parser = new JSONParser();
-            try{
-                FileReader file = new FileReader("UserData.json");
-                array=(JSONArray)parser.parse(file);
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null,"Error occured");
-            }
-            jsonObject.put("Username", txtuser.getText());
-            jsonObject.put("Password",txtPassword.getText());
-            array.add(jsonObject);
-            try{
-                FileWriter file = new FileWriter("UserData.json");
-                file.write(array.toJSONString());
-                file.close();
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null,"Error occured");
-            }
-            JOptionPane.showMessageDialog(null,"Data Saved");
-            
-            
-                                                 
 
-    if (txtuser.getText().isEmpty() || txtPassword.getText().isEmpty()) {
+        JSONObject jsonObject = new JSONObject();
+        JSONArray array = new JSONArray();
+        JSONParser parser = new JSONParser();
+        try {
+            FileReader file = new FileReader("UserData.json");
+            array = (JSONArray) parser.parse(file);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error occured");
+        }
+        jsonObject.put("Username", txtuser.getText());
+        jsonObject.put("Password", txtPassword.getText());
+        array.add(jsonObject);
+        try {
+            FileWriter file = new FileWriter("UserData.json");
+            file.write(array.toJSONString());
+            file.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error occured");
+        }
+        JOptionPane.showMessageDialog(null, "Data Saved");
+
+        if (txtuser.getText().isEmpty() || txtPassword.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "FILL ALL THE FIELDS");
         } else {
-            String dataToSave = "Do you want to save this information?\n"+
-                    "\nUser: " + txtuser.getText()+
-                    "\nPassword: " + txtPassword.getText();
-                    
-                    
+            String dataToSave = "Do you want to save this information?\n"
+                    + "\nUser: " + txtuser.getText()
+                    + "\nPassword: " + txtPassword.getText();
 
             int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Person Saving",
                     JOptionPane.YES_NO_CANCEL_OPTION);
 
             switch (selection) {
                 case 0:
-                JOptionPane.showMessageDialog(null, "Information was saved", txtuser.getText() + 
-                "Saved", JOptionPane.INFORMATION_MESSAGE);
-                    
- 
-                        createUser(mongo, 
-                               "Person",
-                               "Users",
-                               txtuser.getText(),
-                               txtPassword.getText()); 
-                               
-                               
-                               
-                        
+                    JOptionPane.showMessageDialog(null, "Information was saved", txtuser.getText()
+                            + "Saved", JOptionPane.INFORMATION_MESSAGE);
+
+                    createUser(mongo,
+                            "Person",
+                            "Users",
+                            txtuser.getText(),
+                            txtPassword.getText());
+
                     break;
                 case 1:
                     JOptionPane.showMessageDialog(null, "Information was NOT saved", txtuser.getText() + "NOT saved",
-                    JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.INFORMATION_MESSAGE);
                     emptyFields();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Action was cancelled", txtuser.getText() + "Cancelled",
-                    JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
             }
-    }
-    
-   
+        }
+
+
     }//GEN-LAST:event_btnRegisterActionPerformed
-public void emptyFields() {
+    public void emptyFields() {
         txtuser.setText("");
         txtPassword.setText("");
-        
-    }  
+
+    }
+
     /**
      * @param args the command line arguments
      */

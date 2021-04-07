@@ -7,6 +7,7 @@ import java.util.Scanner;
  * @author Sigma Programmers
  */
 public class Person {
+
     private String name;
     private String lastname;
     private String telephoneNumber;
@@ -20,11 +21,12 @@ public class Person {
         this.Email = Email;
         this.ID = ID;
     }
-    
+
     @Override
     public String toString() {
-        return  "name=" + getName() + ",lastName=" + getLastname() + ",telephoneNumber=" + getTelephoneNumber() + ",Email=" + getEmail() + ", ID =" + getID() ;
+        return "name=" + getName() + ",lastName=" + getLastname() + ",telephoneNumber=" + getTelephoneNumber() + ",Email=" + getEmail() + ", ID =" + getID();
     }
+
     /**
      * @return the name
      */
@@ -94,5 +96,5 @@ public class Person {
     public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
     }
-    
+
 }

@@ -127,14 +127,14 @@ public class FrmProducts extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-FrmEmployers frmEmployers= new FrmEmployers();
-frmEmployers.setVisible(true);
-dispose();
+        FrmEmployers frmEmployers = new FrmEmployers();
+        frmEmployers.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-System.exit(0);
+        System.exit(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 

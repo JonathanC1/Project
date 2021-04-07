@@ -308,26 +308,25 @@ public class GUIBill extends javax.swing.JFrame {
     private void otherPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otherPriceKeyTyped
         // TODO add your handling code here:
         char valid = evt.getKeyChar();
-        
-        if (Character.isLetter(valid)){
+
+        if (Character.isLetter(valid)) {
             getToolkit().beep();
-            
+
             evt.consume();
-            
+
             JOptionPane.showMessageDialog(rootPane, "Input ONLY numbers");
         }
     }//GEN-LAST:event_otherPriceKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-System.exit(0);
+        System.exit(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-FrmEmployers frmEmployers= new FrmEmployers();
-frmEmployers.setVisible(true);
-dispose();
-
+        FrmEmployers frmEmployers = new FrmEmployers();
+        frmEmployers.setVisible(true);
+        dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReturnActionPerformed

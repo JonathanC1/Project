@@ -6,8 +6,8 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 import static ec.edu.espe.mechanic.utils.Connection.createConnection;
-import static ec.edu.espe.mechanic.utils.OperationMongoDB.createcar;
 import javax.swing.table.DefaultTableModel;
+import static ec.edu.espe.mechanic.utils.OperationMongoDB.createCar;
 
 /**
  *
@@ -257,7 +257,7 @@ public class FrmCar extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Information was saved", txtModel.getText()
                             + "Saved", JOptionPane.INFORMATION_MESSAGE);
 
-                    createcar(mongo,
+                    createCar(mongo,
                             "Vehicles",
                             "Cars",
                             txtYear.getText(),

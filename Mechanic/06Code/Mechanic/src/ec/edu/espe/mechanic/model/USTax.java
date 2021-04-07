@@ -5,31 +5,27 @@ package ec.edu.espe.mechanic.model;
  * @author Sigma Programmers
  */
 public class USTax {
-    
+
     private float value;
     private float tax;
     private static USTax instance;
-    
+
     private USTax(float value) {
         tax = (float) 0.12;
         this.value = value;
     }
-    
-    public static USTax getlnstance(float value)
-    {
-        if(getInstance() == null)
-        {
+
+    public static USTax getlnstance(float value) {
+        if (getInstance() == null) {
             setInstance(new USTax(value));
-        }
-        else
-        {
-        setInstance(new USTax(value));
-        
+        } else {
+            setInstance(new USTax(value));
+
         }
         return getInstance();
     }
-    
-    public float salesTotal(USTax usTax){
+
+    public float salesTotal(USTax usTax) {
         float total;
         total = usTax.getTax() * usTax.getValue();
         total += usTax.getValue();
@@ -77,7 +73,5 @@ public class USTax {
     public static void setInstance(USTax aInstance) {
         instance = aInstance;
     }
-    
-        
-    
+
 }

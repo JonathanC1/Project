@@ -5,6 +5,7 @@ package ec.edu.espe.mechanic.model;
  * @author Sigma Programmers
  */
 public class Mechanic extends Person {
+
     String specialty;
 
     public Mechanic(String specialty, String name, String lastname, String telephoneNumber, String Email, String ID) {
@@ -28,5 +29,5 @@ public class Mechanic extends Person {
     public Mechanic(String name, String lastname, String telephoneNumber, String Email, String ID) {
         super(name, lastname, telephoneNumber, Email, ID);
     }
-    
+
 }

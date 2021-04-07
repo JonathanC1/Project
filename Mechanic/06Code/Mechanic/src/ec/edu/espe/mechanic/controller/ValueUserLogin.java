@@ -8,11 +8,12 @@ import com.mongodb.DBObject;
  * @author Sigma Programmers
  */
 public class ValueUserLogin {
+
     BasicDBObject document = new BasicDBObject();
-    
-    public DBObject addUser(String name,String password ){
-        document.put( "Name",name );
-        document.put( "Password", password);
+
+    public DBObject addUser(String name, String password) {
+        document.put("Name", name);
+        document.put("Password", password);
         return null;
     }
 }

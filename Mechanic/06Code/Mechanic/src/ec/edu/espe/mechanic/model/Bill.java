@@ -5,29 +5,12 @@ package ec.edu.espe.mechanic.model;
  * @author Sigma Programmers
  */
 public class Bill {
+
     private Customer client;
     private int numberOfBill = 1;
     private float priceOfWorkforce;
     private float discount;
 
-    public void totalPartsUsed(){
-        
-        
-    }
-    
-    public void totalAccessories(){
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public Bill(Customer client, float priceOfWorkforce, float discount) {
         this.client = client;
         this.priceOfWorkforce = priceOfWorkforce;
@@ -38,9 +21,7 @@ public class Bill {
     public String toString() {
         return "Bills{" + "client=" + client + ", numberOfBill=" + numberOfBill + ", priceOfWorkforce=" + priceOfWorkforce + ", discount=" + discount + '}';
     }
-    
 
-    
     /**
      * @return the client
      */

@@ -5,9 +5,9 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 import static ec.edu.espe.mechanic.utils.Connection.createConnection;
-import static ec.edu.espe.mechanic.utils.OperationMongoDB.create;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static ec.edu.espe.mechanic.utils.OperationMongoDB.createCustumer;
 
 /**
  *
@@ -16,24 +16,25 @@ import javax.swing.table.DefaultTableModel;
 public class FrmCustomerRecord extends javax.swing.JFrame {
 
     DefaultTableModel model;
-   
+
     DB db;
     DBCollection collection;
     BasicDBObject document = new BasicDBObject();
     MongoClient mongo = createConnection();
+
     /**
      * Creates new form CustomerRecord
      */
     public FrmCustomerRecord() {
         initComponents();
-        model=new DefaultTableModel();
+        model = new DefaultTableModel();
         model.addColumn("Name");
         model.addColumn("Last Name");
         model.addColumn("Telephone Number");
         model.addColumn("Email");
         model.addColumn("ID");
         this.tblTable.setModel(model);
-        
+
         this.setLocationRelativeTo(null);
     }
 
@@ -336,17 +337,17 @@ public class FrmCustomerRecord extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAllActionPerformed
-        int row=tblTable.getRowCount();
-        for (int i = row-1; i >= 0; i--) {
+        int row = tblTable.getRowCount();
+        for (int i = row - 1; i >= 0; i--) {
             model.removeRow(i);
         }
     }//GEN-LAST:event_btnDeleteAllActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
-        int row=Integer.parseInt(txtRow.getText());
-        int column=Integer.parseInt(txtColumn.getText());
+        int row = Integer.parseInt(txtRow.getText());
+        int column = Integer.parseInt(txtColumn.getText());
         model.setValueAt(txtNewData.getText(), row, column);
-        
+
     }//GEN-LAST:event_btnModifyActionPerformed
 
     private void btnViewCarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCarsActionPerformed
@@ -354,75 +355,71 @@ public class FrmCustomerRecord extends javax.swing.JFrame {
     }//GEN-LAST:event_btnViewCarsActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        int row=tblTable.getSelectedRow();
-        if(row>=0){
+        int row = tblTable.getSelectedRow();
+        if (row >= 0) {
             model.removeRow(row);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Select Row.");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-System.exit(0);
+        System.exit(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
 
-FrmEmployers frmEmployers= new FrmEmployers();
-frmEmployers.setVisible(true);
-dispose();
+        FrmEmployers frmEmployers = new FrmEmployers();
+        frmEmployers.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
 
-    if (txtName.getText().isEmpty() || txtLastName.getText().isEmpty() || 
-            txtTelephoneNumber.getText().isEmpty() || txtEmail.getText().isEmpty()|| txtID.getText().isEmpty()) {
+        if (txtName.getText().isEmpty() || txtLastName.getText().isEmpty()
+                || txtTelephoneNumber.getText().isEmpty() || txtEmail.getText().isEmpty() || txtID.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "FILL ALL THE FIELDS");
         } else {
-            String dataToSave = "Do you want to save this information?\n"+
-                    "\nName: " + txtName.getText()+
-                    "\nLastName: " + txtLastName.getText() + 
-                    "\nTelephoneNumber: " + txtTelephoneNumber.getText() + 
-                    "\nEmail: " + txtEmail.getText()+ 
-                    "\nID: " + txtID.getText() ;
-                    
+            String dataToSave = "Do you want to save this information?\n"
+                    + "\nName: " + txtName.getText()
+                    + "\nLastName: " + txtLastName.getText()
+                    + "\nTelephoneNumber: " + txtTelephoneNumber.getText()
+                    + "\nEmail: " + txtEmail.getText()
+                    + "\nID: " + txtID.getText();
 
             int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Person Saving",
                     JOptionPane.YES_NO_CANCEL_OPTION);
 
             switch (selection) {
                 case 0:
-                JOptionPane.showMessageDialog(null, "Information was saved", txtName.getText() + 
-                "Saved", JOptionPane.INFORMATION_MESSAGE);
-                    
- 
-                        create(mongo, 
-                               "Person",
-                               "Customers",
-                               txtName.getText(),
-                               txtLastName.getText(), 
-                               txtTelephoneNumber.getText(),
-                               txtEmail.getText(),
-                               txtID.getText());
-                               
-                               
-                        
+                    JOptionPane.showMessageDialog(null, "Information was saved", txtName.getText()
+                            + "Saved", JOptionPane.INFORMATION_MESSAGE);
+
+                    createCustumer(mongo,
+                            "Person",
+                            "Customers",
+                            txtName.getText(),
+                            txtLastName.getText(),
+                            txtTelephoneNumber.getText(),
+                            txtEmail.getText(),
+                            txtID.getText());
+
                     break;
                 case 1:
                     JOptionPane.showMessageDialog(null, "Information was NOT saved", txtName.getText() + "NOT saved",
-                    JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.INFORMATION_MESSAGE);
                     emptyFields();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Action was cancelled", txtName.getText() + "Cancelled",
-                    JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.INFORMATION_MESSAGE);
                     break;
             }
+        }
     }
-    }
-    
+
     public void emptyFields() {
         txtName.setText("");
         txtLastName.setText("");
@@ -431,7 +428,6 @@ dispose();
         txtID.setText("");
     }//GEN-LAST:event_SaveActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */

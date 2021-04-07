@@ -5,6 +5,7 @@ package ec.edu.espe.mechanic.model;
  * @author Sigma Programmers
  */
 public class SpareParts {
+
     private String name;
     private String model;
     private String type;

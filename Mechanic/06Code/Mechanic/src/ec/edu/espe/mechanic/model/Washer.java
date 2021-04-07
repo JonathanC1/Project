@@ -5,6 +5,7 @@ package ec.edu.espe.mechanic.model;
  * @author Sigma Programmers
  */
 public class Washer {
+
     private String specialits;
     private float waitTime;
 

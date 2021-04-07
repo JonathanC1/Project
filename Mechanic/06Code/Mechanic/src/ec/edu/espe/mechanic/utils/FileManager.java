@@ -17,7 +17,9 @@ import java.util.logging.Logger;
  *
  * @author Sigma Programmers
  */
-public class FileManager implements Persistence {@Override
+public class FileManager implements Persistence {
+
+    @Override
     public boolean create(String data, String table, BasicDBObject document) {
         boolean saved = false;
         createFile(table);
@@ -87,7 +89,7 @@ public class FileManager implements Persistence {@Override
                 newLine = newLine + line + "\n";
             }
             reader.close();
-            try (FileWriter writer = new FileWriter("Users.json")) {
+            try ( FileWriter writer = new FileWriter("Users.json")) {
                 writer.write(newLine);
             }
         } catch (FileNotFoundException ex) {
@@ -128,7 +130,7 @@ public class FileManager implements Persistence {@Override
                 ignore = false;
             }
             read.close();
-            try (FileWriter writer = new FileWriter("Users.json")) {
+            try ( FileWriter writer = new FileWriter("Users.json")) {
                 writer.write(newLine);
                 writer.close();
 
@@ -167,6 +169,3 @@ public class FileManager implements Persistence {@Override
     }
 
 }
-
-   
-

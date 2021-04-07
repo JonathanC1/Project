@@ -6,7 +6,7 @@ package ec.edu.espe.mechanic.model;
  */
 public class Product {
 
-    private String name ;
+    private String name;
     private int quanty;
     private int price;
 
@@ -57,12 +57,10 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
-    
-    
-/*=======
+
+    /*=======
     String name ;
     int quanty;
 >>>>>>> e4b3f82c2e54cd426697e6d1e44a137df95afedb
-        */
-    
+     */
 }

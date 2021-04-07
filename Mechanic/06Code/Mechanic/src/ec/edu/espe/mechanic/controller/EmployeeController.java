@@ -13,15 +13,16 @@ import com.mongodb.DBObject;
  * @author lucia
  */
 public class EmployeeController {
+
     BasicDBObject document = new BasicDBObject();
-    
-    public DBObject addVehicle(int Name, String LastName, String Phone, String Code ){
-    
-        document.put( "Name",Name );
-        document.put( "LastName", LastName);
-        document.put( "Phone", Phone);
-        document.put( "Code",Code );
-        
+
+    public DBObject addVehicle(int Name, String LastName, String Phone, String Code) {
+
+        document.put("Name", Name);
+        document.put("LastName", LastName);
+        document.put("Phone", Phone);
+        document.put("Code", Code);
+
         return null;
     }
 }

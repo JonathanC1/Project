@@ -71,6 +71,5 @@ public class Oracle extends SQLDBManager {
     public boolean openConnection() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
 }

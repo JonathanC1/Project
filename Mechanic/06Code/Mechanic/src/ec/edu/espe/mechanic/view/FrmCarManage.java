@@ -11,8 +11,8 @@ import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import static ec.edu.espe.mechanic.utils.Connection.createConnection;
-import static ec.edu.espe.mechanic.utils.OperationMongoDB.deleteWorker;
-import static ec.edu.espe.mechanic.utils.OperationMongoDB.updateWorker;
+import static ec.edu.espe.mechanic.utils.OperationMongoDB.deleteCars;
+import static ec.edu.espe.mechanic.utils.OperationMongoDB.updateCars;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,14 +20,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author SigmaProgramers
  */
-public class FrmWorkManage extends javax.swing.JFrame {
+public class FrmCarManage extends javax.swing.JFrame {
 
     MongoClient mongo = createConnection();
 
     /**
      * Creates new form FrmRead
      */
-    public FrmWorkManage() {
+    public FrmCarManage() {
         initComponents();
     }
 
@@ -65,7 +65,7 @@ public class FrmWorkManage extends javax.swing.JFrame {
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Broadway", 3, 48)); // NOI18N
-        jLabel1.setText("Worker Manager");
+        jLabel1.setText("Car Manager");
 
         btnShow.setFont(new java.awt.Font("Elephant", 3, 14)); // NOI18N
         btnShow.setText("Show All");
@@ -78,7 +78,12 @@ public class FrmWorkManage extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel5.setText("Kind of Data");
 
-        cmbField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Name", "LastName", "Phone", "Code" }));
+        cmbField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "Registration", "Plate", "Trademark", "Model", "Mileage" }));
+        cmbField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbFieldActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel2.setText("Data to Change");
@@ -111,15 +116,10 @@ public class FrmWorkManage extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(54, 54, 54)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtNewData, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDataToUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(46, 46, 46)
+                            .addComponent(txtNewData, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDataToUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)))
                 .addContainerGap())
@@ -156,7 +156,7 @@ public class FrmWorkManage extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblSpeakers);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel3.setText("Code to delate");
+        jLabel3.setText("Plate to delate");
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -217,21 +217,22 @@ public class FrmWorkManage extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 23, Short.MAX_VALUE))
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(182, 182, 182)
                                 .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,19 +261,21 @@ public class FrmWorkManage extends javax.swing.JFrame {
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
         DBCursor cursor = null;
-        DB db = mongo.getDB("Person");
-        DBCollection dbCollection = db.getCollection("Worker");
+        DB db = mongo.getDB("Vehicles");
+        DBCollection dbCollection = db.getCollection("Cars");
         try {
             cursor = dbCollection.find();
-            String[] columnNames = {"Name", "LastName", "Phone", "Code"};
+            String[] columnNames = {"Year", "Registration", "Plate", "Trademark", "Model", "Mileage"};
             DefaultTableModel modelTable = new DefaultTableModel(columnNames, 0);
             while (cursor.hasNext()) {
                 DBObject obj = cursor.next();
-                String name = (String) obj.get("Name");
-                String lastName = (String) obj.get("LastName");
-                String phone = (String) obj.get("Phone");
-                String Code = (String) obj.get("Code");
-                modelTable.addRow(new Object[]{name, lastName, phone, Code});
+                String year = (String) obj.get("Year");
+                String registration = (String) obj.get("Registration");
+                String plate = (String) obj.get("Plate");
+                String trademark = (String) obj.get("Trademark");
+                String model = (String) obj.get("Model");
+                String mileage = (String) obj.get("Mileage");
+                modelTable.addRow(new Object[]{year, registration, plate, trademark, model, mileage});
             }
             tblSpeakers.setModel(modelTable);
             cursor.close();
@@ -294,7 +297,7 @@ public class FrmWorkManage extends javax.swing.JFrame {
                 case 0:
                     JOptionPane.showMessageDialog(null, "Information was deleting", txtDataToDelete.getText() + "Deleted",
                             JOptionPane.INFORMATION_MESSAGE);
-                    deleteWorker(mongo, "Person", "Worker", txtDataToDelete.getText());
+                    deleteCars(mongo, "Vehicles", "Cars", txtDataToDelete.getText());
                     txtDataToDelete.setText("");
                     break;
                 case 1:
@@ -323,7 +326,7 @@ public class FrmWorkManage extends javax.swing.JFrame {
                 case 0:
                     JOptionPane.showMessageDialog(null, "Information was updating", txtDataToUpdate.getText() + "Updated",
                             JOptionPane.INFORMATION_MESSAGE);
-                    updateWorker(mongo, "Person", "Worker", txtDataToUpdate.getText(), txtNewData.getText(), cmbField.getSelectedItem().toString());
+                    updateCars(mongo, "Vehicles", "Cars", txtDataToUpdate.getText(), txtNewData.getText(), cmbField.getSelectedItem().toString());
                     txtDataToUpdate.setText("");
                     txtNewData.setText("");
                     cmbField.setSelectedIndex(0);
@@ -347,6 +350,10 @@ public class FrmWorkManage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReturnActionPerformed
 
+    private void cmbFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -364,35 +371,21 @@ public class FrmWorkManage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmWorkManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCarManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmWorkManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCarManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmWorkManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCarManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmWorkManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCarManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmWorkManage().setVisible(true);
+                new FrmCarManage().setVisible(true);
             }
         });
     }

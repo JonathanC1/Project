@@ -5,6 +5,7 @@ package ec.edu.espe.mechanic.model;
  * @author Sigma Programmers
  */
 public class Repair {
+
     private String name;
     private String diagnostic;
     private String fault;
