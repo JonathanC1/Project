@@ -1,10 +1,26 @@
 package ec.edu.espe.mechanic.view;
 
+import javax.swing.JOptionPane;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
+import static ec.edu.espe.mechanic.utils.Connection.createConnection;
+import static ec.edu.espe.mechanic.controller.CustomerController.createproduct;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Sigma Programmers
  */
 public class FrmProducts extends javax.swing.JFrame {
+    
+    DefaultTableModel model;
+   
+    DB db;
+    DBCollection collection;
+    BasicDBObject document = new BasicDBObject();
+    MongoClient mongo = createConnection();
 
     /**
      * Creates new form FrmProducts
@@ -30,9 +46,10 @@ public class FrmProducts extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtnameproduct = new javax.swing.JTextField();
+        txtquanty = new javax.swing.JTextField();
+        txtprice = new javax.swing.JTextField();
+        btnsave = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -62,9 +79,16 @@ public class FrmProducts extends javax.swing.JFrame {
 
         jLabel5.setText("Price");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtprice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtpriceActionPerformed(evt);
+            }
+        });
+
+        btnsave.setText("Save");
+        btnsave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsaveActionPerformed(evt);
             }
         });
 
@@ -92,10 +116,14 @@ public class FrmProducts extends javax.swing.JFrame {
                 .addGap(163, 163, 163)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
+                    .addComponent(txtnameproduct)
+                    .addComponent(txtquanty)
+                    .addComponent(txtprice, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnsave)
+                .addGap(169, 169, 169))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,15 +136,17 @@ public class FrmProducts extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(40, 40, 40)
                                 .addComponent(jLabel3))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtnameproduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
                         .addComponent(jLabel4))
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtquanty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                    .addComponent(txtprice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(btnsave)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -138,10 +168,71 @@ System.exit(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtpriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtpriceActionPerformed
 
+    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
+        if (txtnameproduct.getText().isEmpty() || txtquanty.getText().isEmpty() || 
+            txtprice.getText().isEmpty()) 
+        {
+            JOptionPane.showMessageDialog(null, "FILL ALL THE FIELDS");
+        }
+        else {
+            String dataToSave = "Do you want to save this information?\n"+
+                    "\nName: " + txtnameproduct.getText()+
+                    "\nQuanty: " + txtquanty.getText() + 
+                    "\nPrice: " + txtprice.getText();
+                    
+
+            int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Car Saving",
+                    JOptionPane.YES_NO_CANCEL_OPTION);
+
+            switch (selection) {
+                case 0:
+                JOptionPane.showMessageDialog(null, "Information was saved", txtnameproduct.getText() + 
+                "Saved", JOptionPane.INFORMATION_MESSAGE);
+                    
+ 
+                        createproduct(mongo, 
+                               "Vehicles",
+                               "Products",
+                               txtnameproduct.getText(),
+                               txtquanty.getText(), 
+                               txtprice.getText());
+                               
+                               
+                               
+                        
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Information was NOT saved", txtnameproduct.getText() + "NOT saved",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    emptyFields();
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Action was cancelled", txtnameproduct.getText() + "Cancelled",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    break;
+            }
+    }
+
+
+
+
+
+
+
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnsaveActionPerformed
+    public void emptyFields() {
+        txtnameproduct.setText("");
+        txtquanty.setText("");
+        txtprice.setText("");
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -178,6 +269,7 @@ System.exit(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnsave;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -185,8 +277,8 @@ System.exit(0);
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtnameproduct;
+    private javax.swing.JTextField txtprice;
+    private javax.swing.JTextField txtquanty;
     // End of variables declaration//GEN-END:variables
 }

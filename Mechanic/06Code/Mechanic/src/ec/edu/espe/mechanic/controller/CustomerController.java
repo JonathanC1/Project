@@ -16,6 +16,22 @@ import com.mongodb.MongoClient;
  */
 public class CustomerController {
     
+    public static void createproduct(MongoClient mongo,String dataBase, String collection,String name, String quanty, String price)    
+          
+    {
+DB db = mongo.getDB(dataBase);
+        DBCollection dbCollection = db.getCollection(collection);
+        BasicDBObject document = new BasicDBObject();
+
+        document.put("Name ", name);
+        document.put("Quanty ", quanty);
+        document.put("Price ", price);
+        
+        
+        dbCollection.insert(document);
+        
+     }   
+    
     public static void createcar(MongoClient mongo,String dataBase, String collection,String year, String registration, String plate,String trademark, String model, String mileage)    
           
     {
