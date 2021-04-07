@@ -263,7 +263,7 @@ public class FrmCar extends javax.swing.JFrame {
                     
  
                         createcar(mongo, 
-                               "Person",
+                               "Vehicles",
                                "Cars",
                                txtYear.getText(),
                                txtRegistration.getText(), 

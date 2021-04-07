@@ -1,10 +1,25 @@
 package ec.edu.espe.mechanic.view;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
+import static ec.edu.espe.mechanic.controller.CustomerController.createMotorcycle;
+import static ec.edu.espe.mechanic.utils.Connection.createConnection;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Sigma Programmers
  */
 public class GUIMotorcycles extends javax.swing.JFrame {
+    DefaultTableModel model;
+   
+    DB db;
+    DBCollection collection;
+    BasicDBObject document = new BasicDBObject();
+    MongoClient mongo = createConnection();
 
     /**
      * Creates new form GUIMotorcycles
@@ -32,14 +47,14 @@ public class GUIMotorcycles extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtYear = new javax.swing.JTextField();
+        txtRegistration = new javax.swing.JTextField();
+        txtPlate = new javax.swing.JTextField();
+        txtTrademark = new javax.swing.JTextField();
+        txtModel = new javax.swing.JTextField();
+        txtMileage = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,15 +69,15 @@ public class GUIMotorcycles extends javax.swing.JFrame {
 
         jLabel5.setText("Plate");
 
-        jLabel6.setText("Trademakak");
+        jLabel6.setText("Trademark");
 
         jLabel7.setText("Model");
 
         jLabel8.setText("Mileage");
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txtMileage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txtMileageActionPerformed(evt);
             }
         });
 
@@ -73,7 +88,12 @@ public class GUIMotorcycles extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Save");
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Return");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -104,12 +124,12 @@ public class GUIMotorcycles extends javax.swing.JFrame {
                                     .addComponent(jLabel8))))
                         .addGap(48, 48, 48)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)))
+                            .addComponent(txtYear)
+                            .addComponent(txtRegistration)
+                            .addComponent(txtPlate)
+                            .addComponent(txtTrademark)
+                            .addComponent(txtModel)
+                            .addComponent(txtMileage, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +139,7 @@ public class GUIMotorcycles extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton3)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1)
+                                .addComponent(btnSave)
                                 .addGap(25, 25, 25)
                                 .addComponent(jButton2)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -134,33 +154,33 @@ public class GUIMotorcycles extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRegistration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPlate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTrademark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMileage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 59, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1)
+                    .addComponent(btnSave)
                     .addComponent(jButton3))
                 .addContainerGap())
         );
@@ -185,9 +205,9 @@ public class GUIMotorcycles extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtMileageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMileageActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtMileageActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 System.exit(0);
@@ -203,6 +223,69 @@ dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+   if (txtYear.getText().isEmpty() || txtRegistration.getText().isEmpty() || 
+            txtPlate.getText().isEmpty() || txtTrademark.getText().isEmpty()|| txtModel.getText().isEmpty()|| txtMileage.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "FILL ALL THE FIELDS");
+        } else {
+            String dataToSave = "Do you want to save this information?\n"+
+                    "\nYear: " + txtYear.getText()+
+                    "\nRegistration: " + txtRegistration.getText() + 
+                    "\nPlate: " + txtPlate.getText() + 
+                    "\nTrademark: " + txtTrademark.getText()+ 
+                    "\nModel: " + txtModel.getText()+
+                    "\nMileage: " + txtMileage.getText();
+                    
+
+            int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Vehicle Saving",
+                    JOptionPane.YES_NO_CANCEL_OPTION);
+
+            switch (selection) {
+                case 0:
+                JOptionPane.showMessageDialog(null, "Information was saved", txtYear.getText() + 
+                "Saved", JOptionPane.INFORMATION_MESSAGE);
+                    
+ 
+                        createMotorcycle(mongo, 
+                               "Vehicles",
+                               "Motorcycles",
+                               txtYear.getText(),
+                               txtRegistration.getText(), 
+                               txtPlate.getText(),
+                               txtTrademark.getText(),
+                               txtModel.getText() ,
+                               txtMileage.getText());
+                               
+                               
+                        
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Information was NOT saved", txtYear.getText() + "NOT saved",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    emptyFields();
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Action was cancelled", txtYear.getText() + "Cancelled",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    break;
+            }
+    }
+
+
+
+
+      
+    }//GEN-LAST:event_btnSaveActionPerformed
+public void emptyFields() {
+        txtYear.setText("");
+        txtRegistration.setText("");
+        txtPlate.setText("");
+        txtTrademark.setText("");
+        txtModel.setText("");
+        txtMileage.setText("");
+    }
+    
+     
     /**
      * @param args the command line arguments
      */
@@ -239,7 +322,7 @@ dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -251,11 +334,11 @@ dispose();
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtMileage;
+    private javax.swing.JTextField txtModel;
+    private javax.swing.JTextField txtPlate;
+    private javax.swing.JTextField txtRegistration;
+    private javax.swing.JTextField txtTrademark;
+    private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
 }

@@ -35,6 +35,29 @@ DB db = mongo.getDB(dataBase);
         
         
     }
+    public static void createMotorcycle(MongoClient mongo,String dataBase, String collection,String year, String registration, String plate,String trademark, String model, String mileage)    
+          
+    {
+DB db = mongo.getDB(dataBase);
+        DBCollection dbCollection = db.getCollection(collection);
+        BasicDBObject document = new BasicDBObject();
+
+        document.put("Year ", year);
+        document.put("Registration ", registration);
+        document.put("Plate ", plate);
+        document.put("Trademark ",trademark);
+        document.put("Model ",model);
+        document.put("Mileage ",mileage);
+        
+        dbCollection.insert(document);
+        
+        
+        
+    }
+    
+    
+    
+    
     
    public static void create(MongoClient mongo,String dataBase, String collection,String name, String lastName, String telephoneNumber,String Email, String ID)    
           
