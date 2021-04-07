@@ -1,10 +1,27 @@
 package ec.edu.espe.mechanic.view;
 
+
+import javax.swing.JOptionPane;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
+import static ec.edu.espe.mechanic.utils.Connection.createConnection;
+import static ec.edu.espe.mechanic.controller.CustomerController.createcar;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Sigma Programmers
  */
 public class FrmCar extends javax.swing.JFrame {
+    
+    DefaultTableModel model;
+   
+    DB db;
+    DBCollection collection;
+    BasicDBObject document = new BasicDBObject();
+    MongoClient mongo = createConnection();
 
     /**
      * Creates new form FrmCar
@@ -221,8 +238,65 @@ public class FrmCar extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
+        if (txtYear.getText().isEmpty() || txtRegistration.getText().isEmpty() || 
+            txtPlate.getText().isEmpty() || txtTrademark.getText().isEmpty()|| txtModel.getText().isEmpty()|| txtMileage.getText().isEmpty()) 
+        {
+            JOptionPane.showMessageDialog(null, "FILL ALL THE FIELDS");
+        }
+        else {
+            String dataToSave = "Do you want to save this information?\n"+
+                    "\nYear: " + txtYear.getText()+
+                    "\nRegistration: " + txtRegistration.getText() + 
+                    "\nPlate: " + txtPlate.getText() + 
+                    "\nTrademark: " + txtTrademark.getText()+ 
+                    "\nModel: " + txtModel.getText() +
+                    "\nMileage: " + txtMileage.getText() ;
+                    
+
+            int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Car Saving",
+                    JOptionPane.YES_NO_CANCEL_OPTION);
+
+            switch (selection) {
+                case 0:
+                JOptionPane.showMessageDialog(null, "Information was saved", txtModel.getText() + 
+                "Saved", JOptionPane.INFORMATION_MESSAGE);
+                    
+ 
+                        createcar(mongo, 
+                               "Person",
+                               "Cars",
+                               txtYear.getText(),
+                               txtRegistration.getText(), 
+                               txtPlate.getText(),
+                               txtTrademark.getText(),
+                               txtModel.getText(),
+                               txtMileage.getText());
+                               
+                               
+                        
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Information was NOT saved", txtModel.getText() + "NOT saved",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    emptyFields();
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Action was cancelled", txtModel.getText() + "Cancelled",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    break;
+            }
+    }
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveActionPerformed
+    public void emptyFields() {
+        txtYear.setText("");
+        txtRegistration.setText("");
+        txtPlate.setText("");
+        txtTrademark.setText("");
+        txtModel.setText("");
+        txtMileage.setText("");
+    }                                    
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
 System.exit(0);
