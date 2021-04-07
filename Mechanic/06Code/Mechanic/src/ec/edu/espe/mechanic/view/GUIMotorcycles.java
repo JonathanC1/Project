@@ -4,8 +4,8 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
-import static ec.edu.espe.mechanic.controller.CustomerController.createMotorcycle;
 import static ec.edu.espe.mechanic.utils.Connection.createConnection;
+import static ec.edu.espe.mechanic.utils.OperationMongoDB.createMotorcycle;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 

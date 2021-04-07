@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.espe.mechanic.controller;
+package ec.edu.espe.mechanic.utils;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -14,7 +14,7 @@ import com.mongodb.MongoClient;
  *
  * @author Roberth-C
  */
-public class CustomerController {
+public class OperationMongoDB {
 
     public static void createcar(MongoClient mongo, String dataBase, String collection, String year, String registration, String plate, String trademark, String model, String mileage) {
         DB db = mongo.getDB(dataBase);
