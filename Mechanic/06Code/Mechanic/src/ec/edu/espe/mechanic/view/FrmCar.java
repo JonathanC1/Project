@@ -117,6 +117,23 @@ public class FrmCar extends javax.swing.JFrame {
 
         jLabel7.setText("Mileage");
 
+        txtYear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtYearKeyTyped(evt);
+            }
+        });
+
+        txtMileage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMileageActionPerformed(evt);
+            }
+        });
+        txtMileage.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMileageKeyTyped(evt);
+            }
+        });
+
         btnViewCars.setText("View Cars");
         btnViewCars.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -323,6 +340,50 @@ dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void txtYearKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtYearKeyTyped
+
+        
+        char C = evt.getKeyChar();
+        if (Character.isLetter(C)) {
+            getToolkit().beep();
+            evt.consume();
+            //JOptionPane.showMessageDialog(this, "Ingrese solo numeros");
+            txtYear.setCursor(null);
+        } else if ((int) evt.getKeyChar() > 32 && (int) evt.getKeyChar() <= 47
+                || (int) evt.getKeyChar() >= 58 && (int) evt.getKeyChar() <= 64
+                || (int) evt.getKeyChar() >= 91 && (int) evt.getKeyChar() <= 96
+                || (int) evt.getKeyChar() >= 123 && (int) evt.getKeyChar() <= 255) {
+            getToolkit().beep();
+            evt.consume();
+            //JOptionPane.showMessageDialog(this, "Ingrese solo numeros");
+            txtYear.setCursor(null);
+        }
+    }//GEN-LAST:event_txtYearKeyTyped
+
+    private void txtMileageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMileageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMileageActionPerformed
+
+    private void txtMileageKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMileageKeyTyped
+        
+     char C = evt.getKeyChar();
+        if (Character.isLetter(C)) {
+            getToolkit().beep();
+            evt.consume();
+            //JOptionPane.showMessageDialog(this, "Ingrese solo numeros");
+            txtMileage.setCursor(null);
+        } else if ((int) evt.getKeyChar() > 32 && (int) evt.getKeyChar() <= 47
+                || (int) evt.getKeyChar() >= 58 && (int) evt.getKeyChar() <= 64
+                || (int) evt.getKeyChar() >= 91 && (int) evt.getKeyChar() <= 96
+                || (int) evt.getKeyChar() >= 123 && (int) evt.getKeyChar() <= 255) {
+            getToolkit().beep();
+            evt.consume();
+            //JOptionPane.showMessageDialog(this, "Ingrese solo numeros");
+            txtMileage.setCursor(null);
+        }   
+        
+    }//GEN-LAST:event_txtMileageKeyTyped
 
     /**
      * @param args the command line arguments

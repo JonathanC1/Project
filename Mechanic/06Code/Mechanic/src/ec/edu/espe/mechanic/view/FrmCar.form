@@ -212,6 +212,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtYear">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtYearKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtRegistration">
     </Component>
@@ -222,6 +225,10 @@
     <Component class="javax.swing.JTextField" name="txtModel">
     </Component>
     <Component class="javax.swing.JTextField" name="txtMileage">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMileageActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMileageKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnViewCars">
       <Properties>
