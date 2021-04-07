@@ -1,11 +1,8 @@
 package ec.edu.espe.mechanic.view;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
-import com.mongodb.MongoClient;
-import static ec.edu.espe.mechanic.utils.Connection.createConnection;
 import java.io.FileReader;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONArray;
@@ -18,12 +15,9 @@ import org.json.simple.parser.JSONParser;
  * @author Sigma Programmers
  */
 public class FrmLogin extends javax.swing.JFrame {
-    
-    
     DB db;
     DBCollection users;
     String loginvalidation;
-    MongoClient mongo = createConnection();
    
     /**
      * Creates new form Login

@@ -346,6 +346,7 @@ public class FrmCustomerRecord extends javax.swing.JFrame {
         int row=Integer.parseInt(txtRow.getText());
         int column=Integer.parseInt(txtColumn.getText());
         model.setValueAt(txtNewData.getText(), row, column);
+        
     }//GEN-LAST:event_btnModifyActionPerformed
 
     private void btnViewCarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCarsActionPerformed

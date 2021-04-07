@@ -140,6 +140,12 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
 
         jLabel10.setText("Code");
 
+        txtCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodeActionPerformed(evt);
+            }
+        });
+
         btnReturn.setText("Return");
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -373,6 +379,10 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
         employers.setVisible(true);
         
     }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void txtCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodeActionPerformed
 
     /**
      * @param args the command line arguments

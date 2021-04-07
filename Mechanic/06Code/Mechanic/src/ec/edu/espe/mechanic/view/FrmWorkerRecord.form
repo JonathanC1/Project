@@ -331,6 +331,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCode">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnReturn">
       <Properties>
