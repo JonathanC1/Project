@@ -9,6 +9,24 @@ public class Bill {
     private int numberOfBill = 1;
     private float priceOfWorkforce;
     private float discount;
+
+    public void totalPartsUsed(){
+        
+        
+    }
+    
+    public void totalAccessories(){
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     public Bill(Customer client, float priceOfWorkforce, float discount) {
         this.client = client;
