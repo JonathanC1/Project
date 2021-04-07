@@ -345,6 +345,10 @@ public class FrmWorkManage extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
+        FrmWorkerRecord view = new FrmWorkerRecord();
+        this.setVisible(false);
+        view.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnReturnActionPerformed
 
     /**

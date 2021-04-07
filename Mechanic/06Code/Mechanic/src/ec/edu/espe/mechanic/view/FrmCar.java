@@ -116,7 +116,7 @@ public class FrmCar extends javax.swing.JFrame {
 
         jLabel7.setText("Mileage");
 
-        btnViewCars.setText("View Cars");
+        btnViewCars.setText("Modify Cars");
         btnViewCars.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewCarsActionPerformed(evt);
@@ -152,7 +152,7 @@ public class FrmCar extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                                 .addComponent(txtMileage, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel6)
@@ -302,9 +302,9 @@ public class FrmCar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveMouseExited
 
     private void btnViewCarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCarsActionPerformed
-        //GUIViewCars view = new GUIViewCars();
+        FrmCarManage view = new FrmCarManage();
         this.setVisible(false);
-        //view.setVisible(true);
+        view.setVisible(true);
         dispose();
 
     }//GEN-LAST:event_btnViewCarsActionPerformed

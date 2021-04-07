@@ -358,9 +358,10 @@ public class FrmWorkerRecord extends javax.swing.JFrame {
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
 
-        int fila = Integer.parseInt(txtRow.getText());
-        int columna = Integer.parseInt(txtColumn.getText());
-        modelo.setValueAt(txtFact.getText(), fila, columna);
+        FrmWorkManage view = new FrmWorkManage();
+        this.setVisible(false);
+        view.setVisible(true);
+        dispose();
 
 
     }//GEN-LAST:event_btnModifyActionPerformed

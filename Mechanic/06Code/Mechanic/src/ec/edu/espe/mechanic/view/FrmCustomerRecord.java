@@ -344,9 +344,10 @@ public class FrmCustomerRecord extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteAllActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
-        int row = Integer.parseInt(txtRow.getText());
-        int column = Integer.parseInt(txtColumn.getText());
-        model.setValueAt(txtNewData.getText(), row, column);
+        FrmCustumerManage view = new FrmCustumerManage();
+        this.setVisible(false);
+        view.setVisible(true);
+        dispose();
 
     }//GEN-LAST:event_btnModifyActionPerformed
 

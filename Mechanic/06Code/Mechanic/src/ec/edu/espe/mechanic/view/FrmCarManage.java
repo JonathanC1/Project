@@ -348,6 +348,10 @@ public class FrmCarManage extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
+        FrmCar view = new FrmCar();
+        this.setVisible(false);
+        view.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void cmbFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFieldActionPerformed
