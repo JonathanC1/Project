@@ -1,21 +1,34 @@
 package ec.edu.espe.mechanic.view;
 
-import java.io.FileNotFoundException;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
+import static ec.edu.espe.mechanic.controller.CustomerController.create;
+import static ec.edu.espe.mechanic.controller.CustomerController.createUser;
+import static ec.edu.espe.mechanic.utils.Connection.createConnection;
+
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
+
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+
 
 /**
  *
  * @author Roberth-C
  */
 public class FrmRegister extends javax.swing.JFrame {
-
+DefaultTableModel model;
+   
+    DB db;
+    DBCollection collection;
+    BasicDBObject document = new BasicDBObject();
+    MongoClient mongo = createConnection();
     /**
      * Creates new form FrmRegister
      */
@@ -36,7 +49,7 @@ public class FrmRegister extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
-        pswuser = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtuser = new javax.swing.JTextField();
@@ -64,9 +77,9 @@ public class FrmRegister extends javax.swing.JFrame {
             }
         });
 
-        pswuser.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pswuserActionPerformed(evt);
+                txtPasswordActionPerformed(evt);
             }
         });
 
@@ -95,7 +108,7 @@ public class FrmRegister extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pswuser))
+                        .addComponent(txtPassword))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jLabel2)
@@ -122,7 +135,7 @@ public class FrmRegister extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(pswuser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegister)
@@ -151,7 +164,7 @@ public class FrmRegister extends javax.swing.JFrame {
         JSONObject obj = new JSONObject();
         int size = jrr.size();
         obj.put("Username", txtuser.getText());
-        obj.put("Password",pswuser.getText());
+        obj.put("Password",txtPassword.getText());
 
         for(int i=0;i<size;i++){
             if(obj.equals(jrr.get(i))){
@@ -181,13 +194,12 @@ public class FrmRegister extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnReturnActionPerformed
 
-    private void pswuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswuserActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
 
-    }//GEN-LAST:event_pswuserActionPerformed
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-            
-        
+     
             JSONObject jsonObject = new JSONObject();
             JSONArray array = new JSONArray();
             JSONParser parser = new JSONParser();
@@ -198,7 +210,7 @@ public class FrmRegister extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Error occured");
             }
             jsonObject.put("Username", txtuser.getText());
-            jsonObject.put("Password",pswuser.getText());
+            jsonObject.put("Password",txtPassword.getText());
             array.add(jsonObject);
             try{
                 FileWriter file = new FileWriter("UserData.json");
@@ -208,9 +220,57 @@ public class FrmRegister extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Error occured");
             }
             JOptionPane.showMessageDialog(null,"Data Saved");
+            
+            
+                                                 
+
+    if (txtuser.getText().isEmpty() || txtPassword.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "FILL ALL THE FIELDS");
+        } else {
+            String dataToSave = "Do you want to save this information?\n"+
+                    "\nUser: " + txtuser.getText()+
+                    "\nPassword: " + txtPassword.getText();
+                    
+                    
+
+            int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Person Saving",
+                    JOptionPane.YES_NO_CANCEL_OPTION);
+
+            switch (selection) {
+                case 0:
+                JOptionPane.showMessageDialog(null, "Information was saved", txtuser.getText() + 
+                "Saved", JOptionPane.INFORMATION_MESSAGE);
+                    
+ 
+                        createUser(mongo, 
+                               "Person",
+                               "Users",
+                               txtuser.getText(),
+                               txtPassword.getText()); 
+                               
+                               
+                               
+                        
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Information was NOT saved", txtuser.getText() + "NOT saved",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    emptyFields();
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Action was cancelled", txtuser.getText() + "Cancelled",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    break;
+            }
+    }
+    
    
     }//GEN-LAST:event_btnRegisterActionPerformed
-
+public void emptyFields() {
+        txtuser.setText("");
+        txtPassword.setText("");
+        
+    }  
     /**
      * @param args the command line arguments
      */
@@ -253,7 +313,7 @@ public class FrmRegister extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField pswuser;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }

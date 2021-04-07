@@ -1,10 +1,13 @@
 package ec.edu.espe.mechanic.view;
 
-import ec.edu.espe.mechanic.controller.ValueClient;
-import ec.edu.espe.mechanic.model.Customer;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
+import static ec.edu.espe.mechanic.controller.CustomerController.create;
+import static ec.edu.espe.mechanic.utils.Connection.createConnection;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 
 /**
  *
@@ -13,7 +16,11 @@ import javax.swing.table.DefaultTableModel;
 public class FrmCustomerRecord extends javax.swing.JFrame {
 
     DefaultTableModel model;
-    
+   
+    DB db;
+    DBCollection collection;
+    BasicDBObject document = new BasicDBObject();
+    MongoClient mongo = createConnection();
     /**
      * Creates new form CustomerRecord
      */
@@ -26,6 +33,7 @@ public class FrmCustomerRecord extends javax.swing.JFrame {
         model.addColumn("Email");
         model.addColumn("ID");
         this.tblTable.setModel(model);
+        
         this.setLocationRelativeTo(null);
     }
 
@@ -367,25 +375,59 @@ dispose();
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
+
+    if (txtName.getText().isEmpty() || txtLastName.getText().isEmpty() || 
+            txtTelephoneNumber.getText().isEmpty() || txtEmail.getText().isEmpty()|| txtID.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "FILL ALL THE FIELDS");
+        } else {
+            String dataToSave = "Do you want to save this information?\n"+
+                    "\nName: " + txtName.getText()+
+                    "\nLastName: " + txtLastName.getText() + 
+                    "\nTelephoneNumber: " + txtTelephoneNumber.getText() + 
+                    "\nEmail: " + txtEmail.getText()+ 
+                    "\nID: " + txtID.getText() ;
+                    
+
+            int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Person Saving",
+                    JOptionPane.YES_NO_CANCEL_OPTION);
+
+            switch (selection) {
+                case 0:
+                JOptionPane.showMessageDialog(null, "Information was saved", txtName.getText() + 
+                "Saved", JOptionPane.INFORMATION_MESSAGE);
+                    
+ 
+                        create(mongo, 
+                               "Person",
+                               "Customers",
+                               txtName.getText(),
+                               txtLastName.getText(), 
+                               txtTelephoneNumber.getText(),
+                               txtEmail.getText(),
+                               txtID.getText());
+                               
+                               
+                        
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Information was NOT saved", txtName.getText() + "NOT saved",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    emptyFields();
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Action was cancelled", txtName.getText() + "Cancelled",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    break;
+            }
+    }
+    }
     
-      
-        Customer customer;
-        ValueClient valueclient = new ValueClient();
-
-         String name;
-         String lastname;
-         String telephoneNumber;
-         String Email;
-         String ID;
-
-        name = txtName.getText();
-        lastname = txtLastName.getText();
-        Email = txtEmail.getText();
-        telephoneNumber = txtTelephoneNumber.getText();
-        ID =txtID.getText();
-
-         customer = new Customer(name, lastname, Email,telephoneNumber,ID);       
-        valueclient.create(customer);
+    public void emptyFields() {
+        txtName.setText("");
+        txtLastName.setText("");
+        txtEmail.setText("");
+        txtTelephoneNumber.setText("");
+        txtID.setText("");
     }//GEN-LAST:event_SaveActionPerformed
 
     

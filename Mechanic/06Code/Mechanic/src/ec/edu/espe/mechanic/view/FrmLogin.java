@@ -4,14 +4,11 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.net.UnknownHostException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 
 /**
  *
@@ -26,13 +23,7 @@ public class FrmLogin extends javax.swing.JFrame {
      * Creates new form Login
      */
     public FrmLogin() {
-        try {
-            Mongo mongo = new Mongo("localhost",27017);
-            db=mongo.getDB("mechanicdatabase");
-            users=db.getCollection("users");
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
        
         initComponents();
         this.setLocationRelativeTo(null);
