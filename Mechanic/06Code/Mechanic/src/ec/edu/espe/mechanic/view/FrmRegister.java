@@ -18,7 +18,7 @@ import org.json.simple.parser.JSONParser;
 
 /**
  *
- * @author Roberth-C
+ * @author Sigma Programmers
  */
 public class FrmRegister extends javax.swing.JFrame {
 

@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Sigma Programmers
  */
-public class GUIMotorcycles extends javax.swing.JFrame {
+public class FrmMotorcycles extends javax.swing.JFrame {
 
     DefaultTableModel model;
 
@@ -25,7 +25,7 @@ public class GUIMotorcycles extends javax.swing.JFrame {
     /**
      * Creates new form GUIMotorcycles
      */
-    public GUIMotorcycles() {
+    public FrmMotorcycles() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -132,7 +132,7 @@ public class GUIMotorcycles extends javax.swing.JFrame {
                             .addComponent(txtModel)
                             .addComponent(txtMileage, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(52, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
@@ -296,20 +296,21 @@ public class GUIMotorcycles extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIMotorcycles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMotorcycles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIMotorcycles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMotorcycles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIMotorcycles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMotorcycles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIMotorcycles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMotorcycles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUIMotorcycles().setVisible(true);
+                new FrmMotorcycles().setVisible(true);
             }
         });
     }

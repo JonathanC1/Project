@@ -1,6 +1,5 @@
-package ec.edu.espe.mechanic.controller;
+package ec.edu.espe.mechanic.view;
 
-import com.mongodb.DBObject;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,9 +11,9 @@ import static org.junit.Assert.*;
  *
  * @author Sigma Programmers
  */
-public class ValueProductTest {
+public class FrmCarTest {
     
-    public ValueProductTest() {
+    public FrmCarTest() {
     }
     
     @BeforeClass
@@ -34,18 +33,25 @@ public class ValueProductTest {
     }
 
     /**
-     * Test of addProduct method, of class ValueProduct.
+     * Test of emptyFields method, of class FrmCar.
      */
     @Test
-    public void testAddProduct() {
-        System.out.println("addProduct");
-        String name = "";
-        int quanty = 0;
-        int price = 0;
-        ValueProduct instance = new ValueProduct();
-        DBObject expResult = null;
-        DBObject result = instance.addProduct(name, quanty, price);
-        assertEquals(expResult, result);
+    public void testEmptyFields() {
+        System.out.println("emptyFields");
+        FrmCar instance = new FrmCar();
+        instance.emptyFields();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of main method, of class FrmCar.
+     */
+    @Test
+    public void testMain() {
+        System.out.println("main");
+        String[] args = null;
+        FrmCar.main(args);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

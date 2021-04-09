@@ -1,5 +1,4 @@
 package ec.edu.espe.mechanic.view;
-
 /**
  *
  * @author Sigma Programmers

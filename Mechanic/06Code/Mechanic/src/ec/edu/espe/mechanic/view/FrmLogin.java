@@ -1,5 +1,4 @@
 package ec.edu.espe.mechanic.view;
-
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import java.io.FileReader;
@@ -7,7 +6,6 @@ import javax.swing.JOptionPane;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 /**
  *
  * @author Sigma Programmers

@@ -1,7 +1,4 @@
 package ec.edu.espe.mechanic.model;
-
-import java.util.Scanner;
-
 /**
  *
  * @author Sigma Programmers

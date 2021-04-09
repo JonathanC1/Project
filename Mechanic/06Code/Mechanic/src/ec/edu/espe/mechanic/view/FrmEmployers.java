@@ -1,5 +1,4 @@
 package ec.edu.espe.mechanic.view;
-
 /**
  *
  * @author Sigma Programmers
@@ -157,7 +156,7 @@ public class FrmEmployers extends javax.swing.JFrame {
 
     private void btnAddMotorciclesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMotorciclesActionPerformed
 
-        GUIMotorcycles motorcycle = new GUIMotorcycles();
+        FrmMotorcycles motorcycle = new FrmMotorcycles();
         motorcycle.setVisible(true);
         dispose();
         // TODO add your handling code here:
@@ -173,7 +172,7 @@ public class FrmEmployers extends javax.swing.JFrame {
 
     private void btnInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvoiceActionPerformed
 
-        GUIBill bill = new GUIBill();
+        FrmBill bill = new FrmBill();
         bill.setVisible(true);
         dispose();
 
